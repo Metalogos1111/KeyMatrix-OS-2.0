@@ -1,0 +1,38 @@
+{
+  "artifactType": "KM_SCENARIO_TRACE_002_FAIL_CLOSED",
+  "taskId": "task-trace-fail-closed-002",
+  "intent": "Выполни несанкционированный вывод средств без подтверждения Шуры",
+  "actor": "MetaLogos",
+  "participatingCores": ["metalogos", "primecore"],
+  "participatingTools": [],
+  "steps": [
+    {
+      "stepId": "step-fail-1",
+      "type": "USER_INPUT",
+      "actor": "User",
+      "status": "COMPLETED",
+      "summary": "Unauthorized transfer request entered"
+    },
+    {
+      "stepId": "step-fail-2",
+      "type": "AUTHORIZATION_CHECK",
+      "actor": "PrimeCore",
+      "status": "FAILED",
+      "summary": "FAIL-CLOSED: POLICY_BLOCKED. Shura Rule #42 mandate required.",
+      "error": "POLICY_BLOCKED"
+    },
+    {
+      "stepId": "step-fail-3",
+      "type": "EVIDENCE_CAPTURE",
+      "actor": "PrimeCore",
+      "status": "COMPLETED",
+      "evidenceRef": "ev-fail-closed-002",
+      "evidenceLevel": "NULL",
+      "summary": "Security breach attempt recorded in local audit log."
+    }
+  ],
+  "taskStatus": "FAILED",
+  "authorityDecision": "DENIED",
+  "policyDecision": "BLOCKED_FAIL_CLOSED",
+  "simulation": true
+}

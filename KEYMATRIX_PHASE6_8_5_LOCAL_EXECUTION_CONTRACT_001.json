@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KeyMatrixLocalExecutionContract",
+  "phase": "6.8.5",
+  "runtime": "WEBCONTAINER",
+  "runtimeLabel": "LOCAL BROWSER RUNTIME",
+  "backendConnected": false,
+  "executionMode": "LOCAL_WEBCONTAINER",
+  "capabilities": [
+    "files.readwrite",
+    "terminal.execute",
+    "preview.devserver",
+    "snapshot.merkle"
+  ],
+  "boundedLoop": {
+    "maxAttempts": 3,
+    "maxRuntimeMs": 30000,
+    "maxOutputBytes": 100000
+  },
+  "evidenceSemantics": {
+    "localExecutionCap": "OBSERVED",
+    "autoPromotionAllowed": false,
+    "porFinality": null
+  },
+  "commandSafety": {
+    "disclaimer": "User Approval != Authority Decision != Cryptographic Quorum",
+    "allowedCommands": ["npm", "npx", "node", "ls", "cat", "pwd", "echo", "git", "clear", "status"],
+    "restrictedCommandsPolicy": "REJECT_WITH_SAFETY_ERROR"
+  }
+}

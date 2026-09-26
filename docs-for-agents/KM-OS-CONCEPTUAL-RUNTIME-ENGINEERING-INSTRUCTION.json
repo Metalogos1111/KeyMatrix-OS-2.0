@@ -1,0 +1,10 @@
+{
+  "instructionId": "KM-OS-CONCEPTUAL-RUNTIME-ENGINEERING-INSTRUCTION",
+  "version": "0.6.1",
+  "principles": [
+    "Evidence Over Declaration: Manifest != Implementation",
+    "Fail-Closed Authority: Identity != Authority",
+    "Offline Autonomy: Network degradation must never compromise core math",
+    "Double-Entry Precision: Balances must zero out across Zakat, Waqf, Treasury"
+  ]
+}

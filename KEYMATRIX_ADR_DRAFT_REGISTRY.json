@@ -1,0 +1,39 @@
+{
+  "registryId": "KEYMATRIX_ADR_DRAFT_REGISTRY",
+  "phase": "KEYMATRIX PHASE 7.0 — CONTROLLED MATERIALIZATION",
+  "owner": "ChatGPT / UXDev (Architecture Continuity)",
+  "status": "OPEN_DRAFTS_ACTIVE",
+  "timestamp": "2026-09-25T07:31:28Z",
+  "drafts": [
+    {
+      "adrId": "ADR-001",
+      "title": "Decentralized DID Root Anchoring in WAN environments",
+      "status": "OPEN_DRAFT",
+      "questions": "Выбор между суверенными ключами Ed25519 и мультиподписью Shura без создания центральной точки отказа."
+    },
+    {
+      "adrId": "ADR-004",
+      "title": "Mathematical Separation of Zakat, Waqf, and Treasury Vaults",
+      "status": "OPEN_DRAFT",
+      "questions": "Обеспечение неизменяемости целевого назначения капитала в рамках локальных моделей исполнения."
+    },
+    {
+      "adrId": "ADR-006",
+      "title": "Formal Evidence Promotion and Escalation Policy",
+      "status": "OPEN_DRAFT",
+      "questions": "Механизмы автоматического подавления ложных утверждений (overclaims) во время перехода к Antigravity."
+    },
+    {
+      "adrId": "ADR-012",
+      "title": "Multi-Engine Collaborative Protocol (Engineering Fabric)",
+      "status": "OPEN_DRAFT",
+      "questions": "Методы разрешения расхождений между логами коллизий Grok и спецификациями AI Studio."
+    },
+    {
+      "adrId": "ADR-013",
+      "title": "Antigravity Launch Interface Integration Contract",
+      "status": "OPEN_DRAFT",
+      "questions": "Стандартизация JSON-пакетов при переходе от уровня локальной симуляции (OBSERVED) к распределенной верификации."
+    }
+  ]
+}

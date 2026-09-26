@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "phase": "6.9",
+  "contractName": "AgentLoopContract",
+  "version": "2.1.0",
+  "loopCycle": [
+    "PLAN",
+    "REQUEST_TOOL",
+    "POLICY_CHECK",
+    "EXECUTE",
+    "OBSERVE",
+    "CAPTURE_EVIDENCE",
+    "CONTINUE_OR_FINALIZE"
+  ],
+  "bounds": {
+    "maxSteps": 8,
+    "maxAttemptsPerStep": 3,
+    "maxRuntimeMs": 30000,
+    "maxOutputBytes": 100000
+  },
+  "terminalStates": [
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+    "MAX_STEPS",
+    "TIMEOUT",
+    "USER_STOP"
+  ],
+  "runtimeStepStates": [
+    "PENDING",
+    "REQUESTED",
+    "POLICY_CHECK",
+    "EXECUTING",
+    "OBSERVING",
+    "EVIDENCE_CAPTURE",
+    "SUCCEEDED",
+    "FAILED",
+    "CANCELLED"
+  ],
+  "invariants": {
+    "unboundedLoopingAllowed": false,
+    "evidenceLadderHardCap": "OBSERVED",
+    "productionAuthorityDelegation": false
+  }
+}

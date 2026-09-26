@@ -1,0 +1,28 @@
+{
+  "providerId": "local-webcontainer-provider-01",
+  "name": "WebContainer Local Browser Execution Provider",
+  "runtimeType": "WEBCONTAINER",
+  "availability": "AVAILABLE_LOCAL",
+  "backendConnected": false,
+  "executionMode": "LOCAL_WEBCONTAINER",
+  "interfaceContract": {
+    "init": "init(workspaceId: string): Promise<Workspace>",
+    "readFile": "readFile(path: string): Promise<string>",
+    "writeFile": "writeFile(path: string, content: string): Promise<void>",
+    "createFile": "createFile(path: string, content?: string): Promise<void>",
+    "renameFile": "renameFile(oldPath: string, newPath: string): Promise<void>",
+    "deleteFile": "deleteFile(path: string): Promise<void>",
+    "listFiles": "listFiles(dirPath?: string): Promise<WorkspaceFile[]>",
+    "searchFiles": "searchFiles(query: string): Promise<{ path: string; line: number; content: string }[]>",
+    "executeCommand": "executeCommand(request: ExecutionRequest, onStream?: (event: ExecutionEvent) => void): Promise<ExecutionResult>",
+    "cancelExecution": "cancelExecution(processId: string): Promise<void>",
+    "createSnapshot": "createSnapshot(summary?: string): Promise<WorkspaceSnapshot>",
+    "getPreviewStatus": "getPreviewStatus(): PreviewStatus",
+    "stopPreview": "stopPreview(): Promise<void>"
+  },
+  "remoteCompatibility": {
+    "futureInterface": "RemoteExecutionProvider",
+    "protocol": "WebSockets / gRPC streaming",
+    "status": "NOT_STARTED"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "packageId": "KEYMATRIX_ANTIGRAVITY_INPUT_PACKAGE_001",
+  "phase": "KEYMATRIX PHASE 7.0 — CONTROLLED MATERIALIZATION",
+  "owner": "ChatGPT / UXDev (Architecture Continuity)",
+  "status": "READY_FOR_TRANSITION",
+  "timestamp": "2026-09-25T07:31:28Z",
+  "payload": {
+    "sourceLedgerRef": "KM-SOURCE-CONTINUITY-LEDGER-001",
+    "executionTraceRef": "KEYMATRIX_EXECUTION_TRACE_PACK_001",
+    "identityPassportsRef": "KEYMATRIX_IDENTITY_PASSPORTS_001",
+    "benchmarkBaselineRef": "KEYMATRIX_BENCHMARK_BASELINE_001",
+    "adrRegistryRef": "KEYMATRIX_ADR_DRAFT_REGISTRY",
+    "transitionManifest": {
+      "provenanceLevel": "OBSERVED",
+      "targetLevel": "VERIFIED_EXTERNAL",
+      "gatekeepers": [
+        "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+        "did:key:z6MkjTgpK3b98U8vQ7oP3Vq2E9L4hN1cM5gZ7rX3yW8aD6F"
+      ],
+      "immutableConstraints": {
+        "mismatchGuards": "ACTIVE",
+        "authorityHashBinding": "ENABLED",
+        "failClosedState": "STRICT"
+      }
+    }
+  },
+  "warnings": [
+    "Любой выход за пределы локальной песочницы без верифицированного кворума подписей будет заблокирован механизмом FAIL-CLOSED.",
+    "Данный пакет является описательной Reality Map, его наличие не повышает статус выполнения автоматически."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "passportId": "KEYMATRIX_IDENTITY_PASSPORTS_001",
+  "phase": "KEYMATRIX PHASE 7.0 — CONTROLLED MATERIALIZATION",
+  "status": "DRAFT_COMPLETED",
+  "timestamp": "2026-09-25T07:31:28Z",
+  "passports": [
+    {
+      "coreId": "MetaLogos",
+      "status": "Candidate Only",
+      "evidence": "H3 (Observable)",
+      "executionSurface": "REAL_LOCAL (Deterministic Intent-Router)",
+      "ownership": "Medium",
+      "generatorFamily": "Candidate",
+      "knownCollisions": ["MetaLogos_Central", "AGI_Core", "SCE"],
+      "openQuestions": "Интеграция с внешним LLM без потери детерминированности."
+    },
+    {
+      "coreId": "MetaForge",
+      "status": "Candidate Only",
+      "evidence": "H3 (Observable)",
+      "executionSurface": "REAL_LOCAL (VFS File & Hash generation)",
+      "ownership": "Medium",
+      "generatorFamily": "Candidate",
+      "knownCollisions": ["AutoForge_v2", "DevAgent_Enclave"],
+      "openQuestions": "Автономный синтез кода без нарушения Merkle Root."
+    },
+    {
+      "coreId": "PrimeCore",
+      "status": "Candidate Only",
+      "evidence": "H3 (Observable)",
+      "executionSurface": "REAL_LOCAL (Bounded Double-Entry Math & Islamic Calculators)",
+      "ownership": "High",
+      "generatorFamily": "Candidate",
+      "knownCollisions": ["Islamic_Finance_v1", "Four_Vaults_Model"],
+      "openQuestions": "Синхронизация балансов Zakat и Waqf в реальном времени."
+    },
+    {
+      "coreId": "Archivarius",
+      "status": "Hold / Experimental",
+      "evidence": "H2 (Execution Surface)",
+      "executionSurface": "PARTIAL_LOCAL (VFS Local Replay Verifier)",
+      "ownership": "Low",
+      "generatorFamily": "Hold",
+      "knownCollisions": ["History_Replay_003", "Persistent_Mem_VFS"],
+      "openQuestions": "Построение децентрализованной базы хранения без переполнения диска."
+    },
+    {
+      "coreId": "MetaCore",
+      "status": "Hold / Experimental",
+      "evidence": "H2 (Execution Surface)",
+      "executionSurface": "PARTIAL (HASH-001 fragment calculations)",
+      "ownership": "Low",
+      "generatorFamily": "Hold",
+      "knownCollisions": ["MetaCore12", "Central_Quantum_Ledger"],
+      "openQuestions": "Методология сборки хэш-фрагментов между регионами."
+    },
+    {
+      "coreId": "Singularity",
+      "status": "Hold / Experimental",
+      "evidence": "H1 (Source Exist)",
+      "executionSurface": "DESIGN (Experimental AgentLoop & Chronos Engine)",
+      "ownership": "None",
+      "generatorFamily": "Hold",
+      "knownCollisions": ["Future_Chronos_Model", "Super_Orchestrator"],
+      "openQuestions": "Этические границы долгосрочного автономного планирования."
+    },
+    {
+      "coreId": "MindState",
+      "status": "Hold / Experimental",
+      "evidence": "H2 (Execution Surface)",
+      "executionSurface": "HOLD (Mock-Heavy Session Management)",
+      "ownership": "Low",
+      "generatorFamily": "Hold",
+      "knownCollisions": ["User_Session_v2", "Local_Identity_V1"],
+      "openQuestions": "Сохранение приватности при передаче локальной сессии."
+    }
+  ]
+}

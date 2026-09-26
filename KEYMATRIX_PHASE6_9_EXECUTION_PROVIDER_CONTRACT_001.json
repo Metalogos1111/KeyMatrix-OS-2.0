@@ -1,0 +1,27 @@
+{
+  "phase": "6.9",
+  "contractName": "ExecutionProviderContract",
+  "version": "2.1.0",
+  "implementationClass": "LocalExecutionProviderImpl",
+  "backendConnected": false,
+  "executionModes": {
+    "NATIVE_WEBCONTAINER": {
+      "boot": "WebContainer.boot()",
+      "mount": "webcontainerInstance.mount(tree)",
+      "spawn": "webcontainerInstance.spawn(cmd, args)",
+      "stream": "process.output.pipeTo(...)",
+      "exit": "await process.exit",
+      "serverReady": "this.webcontainerInstance.on('server-ready', ...)"
+    },
+    "VIRTUAL_FILESYSTEM_FALLBACK": {
+      "trigger": "crossOriginIsolated === false",
+      "processId": "proc-<timestamp>",
+      "stream": "Local TS/Linter/Vitest analyzer stdout/stderr",
+      "exit": "Computed exit code (0 or 1)",
+      "serverReady": "Synthetic PORT_OPEN event on port 3000",
+      "classification": "Local browser-local simulation/analysis fallback"
+    }
+  },
+  "operations": ["executeCommand", "cancelExecution", "getDiagnosticInfo", "snapshotWorkspace"],
+  "evidenceCap": "OBSERVED"
+}

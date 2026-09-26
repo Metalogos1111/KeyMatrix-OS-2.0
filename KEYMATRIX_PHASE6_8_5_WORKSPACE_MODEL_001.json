@@ -1,0 +1,27 @@
+{
+  "workspaceId": "ws-local-dev-01",
+  "identityContext": {
+    "did": "did:key:km_local_dev_workspace",
+    "userName": "OM_Brother",
+    "role": "Developer"
+  },
+  "sessionId": "sess-webcontainer-local",
+  "runtimeId": "rt-webcontainer-01",
+  "runtimeType": "WEBCONTAINER",
+  "persistenceMode": "LOCAL_SESSION",
+  "createdAt": "2026-09-23T04:20:00.000Z",
+  "lastActiveAt": "2026-09-23T04:20:00.000Z",
+  "filesHash": "hash_0xa1b2c3d4e5f67890",
+  "snapshotCount": 1,
+  "files": [
+    { "path": "package.json", "type": "file", "size": 420 },
+    { "path": "tsconfig.json", "type": "file", "size": 210 },
+    { "path": "src/App.tsx", "type": "file", "size": 650 },
+    { "path": "src/main.tsx", "type": "file", "size": 200 },
+    { "path": "src/components/Header.tsx", "type": "file", "size": 450 },
+    { "path": "src/lib/qibla.ts", "type": "file", "size": 520 },
+    { "path": "src/lib/resonance.ts", "type": "file", "size": 380 },
+    { "path": "src/__tests__/qibla.test.ts", "type": "file", "size": 410 },
+    { "path": "README.md", "type": "file", "size": 180 }
+  ]
+}

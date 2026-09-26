@@ -1,0 +1,27 @@
+{
+  "executionModel": "KEYMATRIX NUR DIGITAL CASH EXECUTION MODEL 001",
+  "version": "0.6.1",
+  "threeConcepts": {
+    "nurValue": "Measured/evidenced contribution or value signal",
+    "nurReward": "Points, credits, benefits or bonuses",
+    "nurDigitalCash": "Real monetary/settlement instrument"
+  },
+  "valueEngineLoop": [
+    "Participation",
+    "Action",
+    "Useful Result",
+    "Evidence",
+    "Quality / Impact",
+    "Contribution",
+    "Reward Policy",
+    "NUR Reward",
+    "Eligibility / Policy",
+    "NUR Digital Cash",
+    "Wallet / Ledger",
+    "Transfer / Settlement"
+  ],
+  "doubleEntryInvariants": {
+    "assets": "Liabilities + Equity",
+    "vaultIsolation": "Zakat (2010), Private (2020), Treasury (3010), Waqf (3020) cannot cross-contaminate"
+  }
+}

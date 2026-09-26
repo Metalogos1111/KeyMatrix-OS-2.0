@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "phase": "6.9",
+  "contractName": "ToolGatewayContract",
+  "version": "2.1.0",
+  "toolCallSchema": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "toolId": { "type": "string" },
+      "taskId": { "type": "string" },
+      "stepId": { "type": "string" },
+      "arguments": { "type": "object" },
+      "requestedBy": { "type": "string" },
+      "riskLevel": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+      "capabilityStatus": { "type": "string", "enum": ["AVAILABLE_LOCAL", "AVAILABLE_BACKEND", "SIMULATED", "DISABLED", "BLOCKED", "HOLD"] },
+      "simulationOnly": { "type": "boolean" },
+      "requiresUserCheckpoint": { "type": "boolean" },
+      "createdAt": { "type": "string" }
+    },
+    "required": ["id", "toolId", "taskId", "stepId", "arguments", "requestedBy", "riskLevel", "capabilityStatus", "simulationOnly", "requiresUserCheckpoint", "createdAt"]
+  },
+  "toolResultSchema": {
+    "type": "object",
+    "properties": {
+      "toolCallId": { "type": "string" },
+      "taskId": { "type": "string" },
+      "stepId": { "type": "string" },
+      "status": { "type": "string", "enum": ["SUCCESS", "ERROR", "BLOCKED", "DENIED", "CANCELLED"] },
+      "output": { "type": "string" },
+      "error": { "type": "string" },
+      "durationMs": { "type": "number" },
+      "executionMode": { "type": "string", "enum": ["NATIVE_WEBCONTAINER", "VIRTUAL_FILESYSTEM_FALLBACK", "SIMULATED", "DISABLED", "BLOCKED"] },
+      "evidenceRef": { "type": "string" },
+      "evidenceLevel": { "type": "string", "const": "OBSERVED" },
+      "simulationOnly": { "type": "boolean" },
+      "completedAt": { "type": "string" }
+    },
+    "required": ["toolCallId", "taskId", "stepId", "status", "output", "durationMs", "executionMode", "evidenceLevel", "simulationOnly", "completedAt"]
+  },
+  "invariants": {
+    "userApprovalEqualsAuthority": false,
+    "userApprovalEqualsCryptographicQuorum": false,
+    "evidenceLevelPromotion": false
+  }
+}

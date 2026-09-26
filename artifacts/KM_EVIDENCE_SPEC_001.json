@@ -1,0 +1,25 @@
+{
+  "artifactType": "KM_EVIDENCE_SPEC_CANONICAL_MODEL",
+  "version": "2.1.0",
+  "phase": "6.8",
+  "ladderLevels": [
+    { "level": 1, "name": "DECLARED", "verification": "Declared intent without proof" },
+    { "level": 2, "name": "DOCUMENTED", "verification": "Documented in architectural schema" },
+    { "level": 3, "name": "IMPLEMENTED", "verification": "Implemented in local code module" },
+    { "level": 4, "name": "RUNNING", "verification": "Executed in local runtime sandbox" },
+    { "level": 5, "name": "OBSERVED", "verification": "Observed via local telemetry" },
+    { "level": 6, "name": "VERIFIED", "verification": "Deterministic cryptographic hash check" },
+    { "level": 7, "name": "REPRODUCED", "verification": "Reproduced across independent test runs" },
+    { "level": 8, "name": "PROVEN", "verification": "Cryptographic TEE hardware + Shura quorum" }
+  ],
+  "specialStates": [
+    { "state": "HOLD", "meaning": "Awaiting external contract / finality NULL" },
+    { "state": "NULL", "meaning": "Invalid or blocked by security policy" },
+    { "state": "SANDBOX", "meaning": "Isolated test ledger, zero real settlement" }
+  ],
+  "invariants": {
+    "truthBoundary": "Simulation evidence cannot exceed L4/L5 without external attestation.",
+    "hashMethod": "SHA-256 local Merkle branch hashing",
+    "adr011Rule": "Simulation != Production Proof"
+  }
+}

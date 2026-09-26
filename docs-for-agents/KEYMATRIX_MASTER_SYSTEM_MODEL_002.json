@@ -1,0 +1,20 @@
+{
+  "systemModel": "KEYMATRIX MASTER SYSTEM MODEL 002",
+  "version": "0.6.1-PRE-ZIP",
+  "northStar": "KeyMatrix connects knowledge, education, creation, community, trusted media, economic activity, governance and AI through explicit identity, authority, execution, evidence and state models.",
+  "platformPlanes": ["M00", "M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12", "M13", "M14", "M15", "M16"],
+  "capabilityCore": [
+    "MetaCore",
+    "MetaForge",
+    "MetaLogos",
+    "MindState",
+    "PrimeCore",
+    "Archivarius",
+    "Singularity"
+  ],
+  "governanceInvariants": [
+    "PROPOSE != APPROVE != EXECUTE != AUDIT",
+    "Zakat != Treasury != Waqf != Private",
+    "Engagement != Value"
+  ]
+}

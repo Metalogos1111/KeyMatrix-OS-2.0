@@ -1,0 +1,58 @@
+{
+  "phase": "6.9",
+  "artifactType": "SkillManifestRegistry",
+  "version": "2.1.0",
+  "invariants": {
+    "skillEqualsTool": false,
+    "skillEqualsAuthority": false,
+    "skillEqualsAuthentication": false,
+    "skillEqualsCore": false
+  },
+  "skills": [
+    {
+      "id": "skill-frontend",
+      "name": "Frontend Design & Engineering Skill",
+      "version": "2.1.0",
+      "allowedTools": ["tool-terminal", "tool-files", "tool-editor"],
+      "requiredCapabilities": ["cap:ui:build", "cap:files:write"],
+      "simulationOnly": true,
+      "status": "AVAILABLE_LOCAL"
+    },
+    {
+      "id": "skill-testing",
+      "name": "Vitest & Verification Engineering Skill",
+      "version": "2.1.0",
+      "allowedTools": ["tool-terminal", "tool-files"],
+      "requiredCapabilities": ["cap:test:run", "cap:files:read"],
+      "simulationOnly": true,
+      "status": "AVAILABLE_LOCAL"
+    },
+    {
+      "id": "skill-keymatrix-ui",
+      "name": "KeyMatrix OS Domain Aesthetic Skill",
+      "version": "2.1.0",
+      "allowedTools": ["tool-files", "tool-editor"],
+      "requiredCapabilities": ["cap:ui:style", "cap:evidence:badge"],
+      "simulationOnly": true,
+      "status": "AVAILABLE_LOCAL"
+    },
+    {
+      "id": "skill-pdf",
+      "name": "PDF Export & Analysis Skill",
+      "version": "1.0.0-schema",
+      "allowedTools": ["tool-files"],
+      "requiredCapabilities": ["cap:doc:export"],
+      "simulationOnly": true,
+      "status": "SIMULATED"
+    },
+    {
+      "id": "skill-document",
+      "name": "Document Analysis & Extraction Skill",
+      "version": "1.0.0-schema",
+      "allowedTools": ["tool-files", "tool-editor"],
+      "requiredCapabilities": ["cap:doc:parse"],
+      "simulationOnly": true,
+      "status": "AVAILABLE_LOCAL"
+    }
+  ]
+}

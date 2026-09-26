@@ -1,0 +1,41 @@
+{
+  "name": "KeyMatrix OS",
+  "short_name": "KeyMatrix",
+  "description": "Towards a more just, more conscious, more prosperous civilization. Humanity · AI · Knowledge · Action.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0a0a0f",
+  "background_color": "#040814",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities", "education", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Qibla Compass",
+      "url": "/#qibla",
+      "description": "Accurate Great-Circle Qibla direction"
+    },
+    {
+      "name": "Prayer Times",
+      "url": "/#prayer",
+      "description": "Daily prayer timetable and countdown"
+    },
+    {
+      "name": "Quran Reader",
+      "url": "/#quran",
+      "description": "Holy Quran with tafsir and translation"
+    },
+    {
+      "name": "NUR Wallet",
+      "url": "/#wallet",
+      "description": "Decentralized ethical economic layer"
+    }
+  ]
+}

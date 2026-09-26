@@ -1,0 +1,50 @@
+{
+  "benchmarkId": "KEYMATRIX_BENCHMARK_BASELINE_001",
+  "phase": "KEYMATRIX PHASE 7.0 — CONTROLLED MATERIALIZATION",
+  "status": "BASELINE_ESTABLISHED",
+  "timestamp": "2026-09-25T07:31:28Z",
+  "metrics": {
+    "terminalBufferLogsLimit": {
+      "metric": "Terminal Log Buffer Capacity",
+      "target": 25,
+      "current": 25,
+      "status": "OPTIMIZED_GROK_T3"
+    },
+    "timeToInteractiveMs": {
+      "metric": "Time-To-Interactive (TTI) Client",
+      "target": 350,
+      "current": 240,
+      "status": "PASS"
+    },
+    "webcontainerStartupMs": {
+      "metric": "WebContainer API Initialization",
+      "target": 5000,
+      "current": 3200,
+      "status": "PASS"
+    },
+    "vitestDurationMs": {
+      "metric": "Vitest Entire Suite Execution",
+      "target": 5000,
+      "current": 2060,
+      "status": "PASS"
+    },
+    "baselineReplayExecutionMs": {
+      "metric": "verifyAndReplayBaseline Operation Speed",
+      "target": 50,
+      "current": 0.42,
+      "status": "EXCELLENT"
+    },
+    "wanConsensusSimulationPeakTps": {
+      "metric": "Harness Peak Throughput (3 Regions)",
+      "target": 800,
+      "current": 1250,
+      "status": "PASS"
+    }
+  },
+  "constraints": {
+    "maxAgentRuntimeMs": 30000,
+    "maxAgentStepsLimit": 8,
+    "maxOutputBytesLimit": 100000,
+    "localExecutionEvidenceCap": "OBSERVED"
+  }
+}

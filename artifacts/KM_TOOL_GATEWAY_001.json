@@ -1,0 +1,69 @@
+{
+  "artifactType": "KM_TOOL_GATEWAY_CANONICAL_SPEC",
+  "version": "2.1.0",
+  "phase": "6.8",
+  "securityPolicy": "STRICT_SANDBOX_LOCAL_ONLY",
+  "externalExecutionAllowed": false,
+  "tools": [
+    {
+      "toolId": "tool-web-search",
+      "name": "Web Search",
+      "category": "WEB_SEARCH",
+      "status": "SIMULATED",
+      "capabilityRequired": "net.search",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-files",
+      "name": "Files & Artifact Vault",
+      "category": "FILES",
+      "status": "AVAILABLE",
+      "capabilityRequired": "files.readWrite",
+      "riskLevel": "MEDIUM",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-terminal",
+      "name": "Terminal Sandbox",
+      "category": "TERMINAL",
+      "status": "SIMULATED",
+      "capabilityRequired": "terminal.execute",
+      "riskLevel": "HIGH",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-compute",
+      "name": "Deterministic Compute",
+      "category": "COMPUTE",
+      "status": "AVAILABLE",
+      "capabilityRequired": "compute.math",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-api",
+      "name": "External API Gateway",
+      "category": "API",
+      "status": "DISABLED",
+      "capabilityRequired": "api.outbound",
+      "riskLevel": "HIGH",
+      "simulationOnly": true,
+      "available": false
+    },
+    {
+      "toolId": "tool-por-sandbox",
+      "name": "PoR Resonance Diagnostic",
+      "category": "SANDBOX",
+      "status": "AVAILABLE",
+      "capabilityRequired": "por.diagnose",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    }
+  ]
+}

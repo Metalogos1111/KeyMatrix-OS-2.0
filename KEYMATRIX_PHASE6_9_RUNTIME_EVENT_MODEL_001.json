@@ -1,0 +1,68 @@
+{
+  "phase": "6.9",
+  "contractName": "RuntimeEventModel",
+  "version": "2.1.0",
+  "chainOfThoughtExposed": false,
+  "events": [
+    {
+      "type": "USER_INPUT",
+      "actor": "User",
+      "description": "User submits high-level task intent."
+    },
+    {
+      "type": "META_RESPONSE",
+      "actor": "MetaLogos",
+      "description": "MetaLogos orchestrator decomposes task intent."
+    },
+    {
+      "type": "CORE_ACTIVATION",
+      "actor": "MetaLogos",
+      "description": "Core domain request/handoff initiated."
+    },
+    {
+      "type": "CORE_HANDOFF",
+      "actor": "MetaLogos",
+      "description": "Data handoff between 7 Core domains without authority delegation."
+    },
+    {
+      "type": "CAPABILITY_REQUEST",
+      "actor": "MetaLogos",
+      "description": "Capability check requested for tool."
+    },
+    {
+      "type": "AUTHORIZATION_CHECK",
+      "actor": "ToolGateway",
+      "description": "Local UX permission checkpoint modal displayed."
+    },
+    {
+      "type": "TOOL_REQUEST",
+      "actor": "MetaLogos",
+      "description": "ToolCall requested with parameters."
+    },
+    {
+      "type": "TOOL_EXECUTION",
+      "actor": "LocalExecutionProvider",
+      "description": "Command execution stream emitted."
+    },
+    {
+      "type": "TOOL_RESULT",
+      "actor": "ToolGateway",
+      "description": "ToolResult normalized with exit code and duration."
+    },
+    {
+      "type": "EVIDENCE_CAPTURE",
+      "actor": "Archivarius",
+      "description": "Step-level evidence captured at OBSERVED level."
+    },
+    {
+      "type": "TASK_UPDATE",
+      "actor": "AgentLoop",
+      "description": "Task state updated in store."
+    },
+    {
+      "type": "FINAL_RESPONSE",
+      "actor": "MetaLogos",
+      "description": "Final user-visible task response output."
+    }
+  ]
+}

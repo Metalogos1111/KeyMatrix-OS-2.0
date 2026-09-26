@@ -1,0 +1,39 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_AGENT_INTERACTION_MODEL_001",
+  "status": "SIMULATION_ONLY",
+  "spine": [
+    "USER",
+    "METALOGOS",
+    "INTENT",
+    "ORCHESTRATION",
+    "AUTHORITY_POLICY",
+    "CORE_SELECTION",
+    "CAPABILITY_REQUEST",
+    "TOOL_EXECUTION",
+    "RESULT",
+    "EVIDENCE",
+    "METALOGOS_RESPONSE"
+  ],
+  "invariants": {
+    "identity_not_authority": true,
+    "capability_not_authority": true,
+    "por_not_finality": true,
+    "nur_value_not_cash": true
+  },
+  "step_types": [
+    "USER_INPUT",
+    "META_RESPONSE",
+    "CORE_ACTIVATION",
+    "CORE_HANDOFF",
+    "CAPABILITY_REQUEST",
+    "AUTHORIZATION_CHECK",
+    "TOOL_REQUEST",
+    "TOOL_EXECUTION",
+    "TOOL_RESULT",
+    "EVIDENCE_CAPTURE",
+    "TASK_UPDATE",
+    "FINAL_RESPONSE"
+  ]
+}

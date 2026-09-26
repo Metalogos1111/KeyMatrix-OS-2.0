@@ -1,0 +1,27 @@
+{
+  "phase": "6.9",
+  "contractName": "EvidenceAttachmentModel",
+  "version": "2.1.0",
+  "evidenceLadder": [
+    "DECLARED",
+    "DOCUMENTED",
+    "IMPLEMENTED",
+    "RUNNING",
+    "OBSERVED",
+    "VERIFIED",
+    "REPRODUCED",
+    "PROVEN"
+  ],
+  "localExecutionCap": "OBSERVED",
+  "attachmentPolicy": {
+    "attachToToolCall": true,
+    "automaticPromotion": false,
+    "hasher": "SHA-256 Merkle Hash",
+    "storage": "Archivarius Memory Core"
+  },
+  "invariants": {
+    "localExecutionCanProduceVerified": false,
+    "localExecutionCanProduceProven": false,
+    "wordVerifiedRefersToContractAuditOnly": true
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "artifactType": "KM_7_CORE_REGISTRY_CANONICAL_SPEC",
+  "version": "2.1.0",
+  "phase": "6.8",
+  "coresCount": 7,
+  "registryBoundary": "LOCAL_SIMULATION_ONLY",
+  "cores": [
+    {
+      "coreId": "metalogos",
+      "displayName": "MetaLogos",
+      "status": "AVAILABLE",
+      "simulationStatus": "LOCAL_SIMULATION",
+      "evidenceMode": "DECLARED",
+      "evidenceLevel": 4,
+      "authorityStatus": "NO_AUTONOMOUS_AUTHORITY",
+      "capabilities": ["intent.decompose", "plan.generate", "core.orchestrate", "policy.evaluate"]
+    },
+    {
+      "coreId": "metaforge",
+      "displayName": "MetaForge",
+      "status": "DORMANT",
+      "simulationStatus": "LOCAL_SIMULATION",
+      "evidenceMode": "DECLARED",
+      "evidenceLevel": 3,
+      "authorityStatus": "NO_AUTONOMOUS_AUTHORITY",
+      "capabilities": ["code.synthesize", "pipeline.compile", "contract.verify", "artifact.package"]
+    },
+    {
+      "coreId": "primecore",
+      "displayName": "PrimeCore",
+      "status": "AVAILABLE",
+      "simulationStatus": "LOCAL_SIMULATION",
+      "evidenceMode": "DECLARED",
+      "evidenceLevel": 5,
+      "authorityStatus": "NO_AUTONOMOUS_AUTHORITY",
+      "capabilities": ["security.enforce", "tee.attest", "policy.guard", "hash.sign"]
+    },
+    {
+      "coreId": "mindstate",
+      "displayName": "MindState",
+      "status": "DORMANT",
+      "simulationStatus": "LOCAL_SIMULATION",
+      "evidenceMode": "DECLARED",
+      "evidenceLevel": 3,
+      "authorityStatus": "NO_AUTONOMOUS_AUTHORITY",
+      "capabilities": ["context.vectorize", "session.continuity", "telemetry.filter"]
+    },
+    {
+      "coreId": "archivarius",
+      "displayName": "Archivarius",
+      "status": "AVAILABLE",
+      "simulationStatus": "LOCAL_SIMULATION",
+      "evidenceMode": "DECLARED",
+      "evidenceLevel": 5,
+      "authorityStatus": "NO_AUTONOMOUS_AUTHORITY",
+      "capabilities": ["evidence.store", "merkle.verify", "provenance.trace", "history.retrieve"]
+    },
+    {
+      "coreId": "singularity",
+      "displayName": "Singularity",
+      "status": "HOLD",
+      "simulationStatus": "HOLD",
+      "evidenceMode": "HOLD",
+      "evidenceLevel": "HOLD",
+      "authorityStatus": "HOLD_AWAITING_CONTRACT",
+      "capabilities": ["simulation.run", "impact.forecast", "synthesis.consolidate"]
+    },
+    {
+      "coreId": "nurcore",
+      "displayName": "NUR Core",
+      "status": "SANDBOX",
+      "simulationStatus": "SANDBOX",
+      "evidenceMode": "SANDBOX",
+      "evidenceLevel": "SANDBOX",
+      "authorityStatus": "SANDBOX_ONLY",
+      "capabilities": ["value.account", "reward.calculate", "zakat.audit", "impact.certify"]
+    }
+  ]
+}

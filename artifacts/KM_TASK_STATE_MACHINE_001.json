@@ -1,0 +1,69 @@
+{
+  "artifactType": "KM_CORE_TASK_STATE_MACHINE_CANONICAL_SPEC",
+  "version": "2.1.0",
+  "phase": "6.8",
+  "runtimeBoundary": "LOCAL_SIMULATION_ONLY",
+  "canonicalInvariants": [
+    "Identity != Authority (Session is locally observed, not institutional mandate)",
+    "PoR != Finality (Resonance harmonic calculation is diagnostic only, finality NULL)",
+    "TEE Attestation != Production TEE (Simulated local status, no hardware enclave)",
+    "NUR Core != Settlement Cash (Zero-Riba sandbox ledger without monetary settlement)",
+    "No Autonomous External Execution (All shell and API commands run within simulation boundary)"
+  ],
+  "states": {
+    "DRAFT": {
+      "description": "Task created from conversational intent parse, awaiting plan expansion",
+      "allowedTransitions": ["PLANNED", "CANCELLED"]
+    },
+    "PLANNED": {
+      "description": "Task decomposed into participating cores, tools, and step graph",
+      "allowedTransitions": ["AWAITING_AUTHORIZATION", "RUNNING", "CANCELLED"]
+    },
+    "AWAITING_AUTHORIZATION": {
+      "description": "Task requires Shura rule #42 approval or operator confirmation",
+      "allowedTransitions": ["RUNNING", "CANCELLED", "FAILED"]
+    },
+    "RUNNING": {
+      "description": "Active step execution across Core Fabric and Tool Gateway",
+      "allowedTransitions": ["WAITING_FOR_TOOL", "WAITING_FOR_CORE", "VERIFYING", "COMPLETED", "FAILED", "CANCELLED"]
+    },
+    "WAITING_FOR_TOOL": {
+      "description": "Execution yielded to Tool Gateway adapter",
+      "allowedTransitions": ["RUNNING", "FAILED", "CANCELLED"]
+    },
+    "WAITING_FOR_CORE": {
+      "description": "Execution yielded across Core Handoff channel",
+      "allowedTransitions": ["RUNNING", "FAILED", "CANCELLED"]
+    },
+    "VERIFYING": {
+      "description": "Evidence generation, Merkle proof hashing, or invariant evaluation",
+      "allowedTransitions": ["COMPLETED", "FAILED", "CANCELLED"]
+    },
+    "COMPLETED": {
+      "description": "Final step successfully executed, evidence captured in Archivarius vault",
+      "allowedTransitions": []
+    },
+    "FAILED": {
+      "description": "Policy denial, validation error, or invariant violation",
+      "allowedTransitions": ["PLANNED"]
+    },
+    "CANCELLED": {
+      "description": "User or Shura cancelled the active execution graph",
+      "allowedTransitions": ["PLANNED"]
+    }
+  },
+  "stepTypes": [
+    "USER_INPUT",
+    "META_RESPONSE",
+    "CORE_ACTIVATION",
+    "CORE_HANDOFF",
+    "CAPABILITY_REQUEST",
+    "AUTHORIZATION_CHECK",
+    "TOOL_REQUEST",
+    "TOOL_EXECUTION",
+    "TOOL_RESULT",
+    "EVIDENCE_CAPTURE",
+    "TASK_UPDATE",
+    "FINAL_RESPONSE"
+  ]
+}

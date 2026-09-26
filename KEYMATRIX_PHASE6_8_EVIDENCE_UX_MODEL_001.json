@@ -1,0 +1,29 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_EVIDENCE_UX_MODEL_001",
+  "status": "SIMULATION_ONLY",
+  "adr_reference": "ADR-002 and ADR-011",
+  "canonical_backbone_8_levels": [
+    { "level": 1, "name": "DECLARED", "description": "Authenticated claim submission; signed declaration." },
+    { "level": 2, "name": "DOCUMENTED", "description": "Claim backed by referenced documentation & hash." },
+    { "level": 3, "name": "IMPLEMENTED", "description": "Artifact exists in build/deployment with manifest binding." },
+    { "level": 4, "name": "RUNNING", "description": "Artifact observed executing in a runtime with execution trace." },
+    { "level": 5, "name": "OBSERVED", "description": "Execution result recorded by an observer identity." },
+    { "level": 6, "name": "VERIFIED", "description": "Independent verification of result vs expected semantics by designated verifier." },
+    { "level": 7, "name": "REPRODUCED", "description": "Independent party re-executed with matching results (>=1 independent run)." },
+    { "level": 8, "name": "PROVEN", "description": "REPRODUCED + external attestation + Shura governance approval (never automatic)." }
+  ],
+  "special_states": {
+    "HOLD": "Evaluation pending or gated; NOT a failure",
+    "NULL": "Invalid / rejected",
+    "SANDBOX": "Isolated simulation; never promoted without leaving sandbox"
+  },
+  "invariants": {
+    "simulation_is_not_production_proof": true,
+    "never_render_verified_true_as_proof": true,
+    "hash_prefix_is_not_verification": true,
+    "unresolved_critical_gates_force_hold": true,
+    "local_hash_is_not_proven": true
+  }
+}

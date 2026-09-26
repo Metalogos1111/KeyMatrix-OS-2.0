@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "documentId": "KEYMATRIX_PHASE6_8_CHAT_TOOL_INTERACTION_MODEL_001",
+  "version": "1.0.0",
+  "phase": "6.8",
+  "scope": "CHAT_TOOL_INTERACTION_MODEL",
+  "interactionFlows": [
+    {
+      "flowId": "FLOW_CHIP_SELECTION",
+      "trigger": "User clicks [+ Инструменты] button",
+      "steps": [
+        "1. Open ChatToolPalette popover displaying 6 tools with status, mode and risk badges.",
+        "2. User clicks on one or more tools (toggle selection in agentStore.selectedToolIds).",
+        "3. Palette mounts chips above composer input showing tool name and close icon.",
+        "4. User types prompt and submits.",
+        "5. MetaLogos creates Task ID, activates corresponding Core(s), executes tool(s) in sandbox, captures evidence, and clears selected chips."
+      ]
+    },
+    {
+      "flowId": "FLOW_SLASH_COMMAND",
+      "trigger": "User types command prefixed with '/' (/search, /files, /terminal, /compute, /por, /status)",
+      "steps": [
+        "1. Engine regex matches slash command and extracts payload.",
+        "2. Maps command directly to assigned tool descriptor.",
+        "3. Evaluates tool safety risk (if HIGH risk, prompts confirmation modal).",
+        "4. Executes tool, creates structured Activity Trace step, records evidence."
+      ]
+    },
+    {
+      "flowId": "FLOW_HIGH_RISK_CONFIRMATION",
+      "trigger": "Invocation of tool with riskLevel 'HIGH' or 'CRITICAL' (e.g., Terminal Sandbox)",
+      "steps": [
+        "1. Intercept invocation before task execution.",
+        "2. Mount ToolInvocationPreviewModal showing tool, capability, mode, and invariant disclaimer.",
+        "3. Operator selects 'ALLOW ONCE', 'FOR TASK', or 'DENY'.",
+        "4. If ALLOW: Execute command in isolated container, log to TerminalPanel, issue Evidence Level 4.",
+        "5. If DENY: Enforce Fail-Closed policy, log rejection step, mark task FAILED with Evidence Level NULL."
+      ]
+    },
+    {
+      "flowId": "FLOW_MULTI_TOOL_ORCHESTRATION",
+      "trigger": "User attaches 2+ tools (e.g., Files + Terminal)",
+      "steps": [
+        "1. Composer passes multiple tool IDs in execution context.",
+        "2. MetaLogos assigns single Task ID.",
+        "3. Generates sequential execution plan with Core handoffs.",
+        "4. Executes sub-steps in respective sandboxes.",
+        "5. Chains individual evidence references into consolidated Activity Trace."
+      ]
+    }
+  ]
+}

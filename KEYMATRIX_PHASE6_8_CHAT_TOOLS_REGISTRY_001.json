@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "documentId": "KEYMATRIX_PHASE6_8_CHAT_TOOLS_REGISTRY_001",
+  "version": "1.1.0",
+  "phase": "6.8",
+  "scope": "CHAT_TOOLS_REGISTRY",
+  "environment": "LOCAL_SIMULATION_ONLY",
+  "metadata": {
+    "totalTools": 6,
+    "availableCount": 5,
+    "disabledCount": 1,
+    "requiresConfirmationRiskLevels": ["HIGH", "CRITICAL"],
+    "evidenceLadder": [
+      "DECLARED",
+      "DOCUMENTED",
+      "IMPLEMENTED",
+      "RUNNING",
+      "OBSERVED",
+      "VERIFIED",
+      "REPRODUCED",
+      "PROVEN"
+    ]
+  },
+  "tools": [
+    {
+      "toolId": "tool-web-search",
+      "name": "Web Search",
+      "category": "WEB_SEARCH",
+      "description": "Поиск проверенной информации по внешним источникам с фильтрацией контента (Shariah compliant).",
+      "capabilityRequired": "net.search",
+      "status": "AVAILABLE",
+      "executionMode": "SIMULATED",
+      "riskLevel": "LOW",
+      "requiresConfirmation": false,
+      "slashCommand": "/search",
+      "assignedCore": "metalogos",
+      "evidenceLevelDefault": "RUNNING"
+    },
+    {
+      "toolId": "tool-files",
+      "name": "Files & Artifact Vault",
+      "category": "FILES",
+      "description": "Локальное безопасное файловое хранилище для артефактов сессии, отчетов и JSON-манифестов.",
+      "capabilityRequired": "files.readwrite",
+      "status": "AVAILABLE",
+      "executionMode": "LOCAL SANDBOX",
+      "riskLevel": "LOW",
+      "requiresConfirmation": false,
+      "slashCommand": "/files",
+      "assignedCore": "archivarius",
+      "evidenceLevelDefault": "RUNNING"
+    },
+    {
+      "toolId": "tool-terminal",
+      "name": "Terminal Sandbox",
+      "category": "TERMINAL",
+      "description": "Изолированная среда выполнения команд сборки, компиляции и проверки целостности кода.",
+      "capabilityRequired": "terminal.execute",
+      "status": "AVAILABLE",
+      "executionMode": "LOCAL SANDBOX",
+      "riskLevel": "HIGH",
+      "requiresConfirmation": true,
+      "slashCommand": "/terminal",
+      "assignedCore": "metaforge",
+      "evidenceLevelDefault": "IMPLEMENTED"
+    },
+    {
+      "toolId": "tool-compute",
+      "name": "Deterministic Compute",
+      "category": "COMPUTE",
+      "description": "Математические и астрономические расчеты высокой точности (кибла, время намаза, Merkle-деревья).",
+      "capabilityRequired": "compute.math",
+      "status": "AVAILABLE",
+      "executionMode": "LOCAL",
+      "riskLevel": "LOW",
+      "requiresConfirmation": false,
+      "slashCommand": "/compute",
+      "assignedCore": "metalogos",
+      "evidenceLevelDefault": "RUNNING"
+    },
+    {
+      "toolId": "tool-api",
+      "name": "External API Gateway",
+      "category": "API",
+      "description": "Шлюз для внешних интеграций и вызовов сервисов (отключен в локальной песочнице согласно ADR-004/007).",
+      "capabilityRequired": "api.outbound",
+      "status": "DISABLED",
+      "executionMode": "DISABLED",
+      "riskLevel": "CRITICAL",
+      "requiresConfirmation": true,
+      "slashCommand": null,
+      "assignedCore": "primecore",
+      "evidenceLevelDefault": null,
+      "evidenceStateDefault": "UNAVAILABLE"
+    },
+    {
+      "toolId": "tool-por-sandbox",
+      "name": "PoR Resonance Diagnostic",
+      "category": "SANDBOX",
+      "description": "Диагностический расчет Proof of Resonance (гармоника φ=1.618033). Не является консенсусом (Finality: NULL).",
+      "capabilityRequired": "por.diagnose",
+      "status": "AVAILABLE",
+      "executionMode": "DIAGNOSTIC ONLY",
+      "riskLevel": "MEDIUM",
+      "requiresConfirmation": false,
+      "slashCommand": "/por",
+      "assignedCore": "primecore",
+      "evidenceLevelDefault": null,
+      "coreStatus": "HOLD"
+    }
+  ]
+}

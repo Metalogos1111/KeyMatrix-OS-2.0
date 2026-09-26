@@ -1,0 +1,30 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_CONTRACT_ALIGNMENT_001",
+  "status": "COMPLETE_WITH_NOTES",
+  "history": {
+    "phase_6": "CLOSED",
+    "phase_6_5": "CLOSED",
+    "phase_6_75": "COMPLETE",
+    "phase_6_8": "COMPLETE_WITH_NOTES",
+    "backend_implementation": "NOT_STARTED"
+  },
+  "alignment_summary": {
+    "total_concepts_reviewed": 30,
+    "aligned_count": 30,
+    "conflicts_resolved_via_frontend_boundaries": 7,
+    "backend_dependencies_documented": 13,
+    "adrs_respected": ["ADR-001", "ADR-002", "ADR-003", "ADR-004", "ADR-005", "ADR-006", "ADR-007", "ADR-008", "ADR-009", "ADR-010", "ADR-011", "ADR-012", "ADR-013"]
+  },
+  "canonical_invariants": {
+    "identity_not_authority": true,
+    "capability_not_authority": true,
+    "profile_not_identity": true,
+    "wallet_not_identity": true,
+    "por_finality_prohibited": true,
+    "nur_three_domains_separated": true,
+    "local_hash_not_proven": true,
+    "terminal_explicitly_sandboxed": true
+  }
+}

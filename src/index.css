@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(3, 7, 18, 0.6);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.25);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.5);
+  }
+}
+
+/* Accessibility Focus Visible Ring */
+:focus-visible {
+  outline: 2px solid #00D4FF !important;
+  outline-offset: 2px !important;
+}
+
+/* RTL Layout mirrors */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .font-mono,
+[dir="rtl"] .tabular-nums {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverseSpin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 35s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverseSpin 45s linear infinite;
+}
+

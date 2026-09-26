@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040814"/>
+      <stop offset="50%" stop-color="#09152e"/>
+      <stop offset="100%" stop-color="#060c1c"/>
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#00FF88"/>
+    </linearGradient>
+    <linearGradient id="goldKaaba" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF9900"/>
+    </linearGradient>
+  </defs>
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="100" fill="url(#bg)" stroke="#00D4FF" stroke-width="8" stroke-opacity="0.5"/>
+  
+  <!-- Outer Sacred Geometry Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#00D4FF" stroke-width="4" stroke-opacity="0.3" stroke-dasharray="12 8"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#00FF88" stroke-width="3" stroke-opacity="0.4"/>
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#FFD700" stroke-width="2" stroke-opacity="0.5"/>
+
+  <!-- Infinity Symbol for KeyMatrix (∞) -->
+  <path d="M190 256 C140 180, 80 180, 80 256 C80 332, 140 332, 190 256 C240 180, 300 180, 300 256" fill="none" stroke="url(#neonCyan)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M300 256 C350 332, 410 332, 410 256 C410 180, 350 180, 300 256 C250 332, 190 332, 190 256" fill="none" stroke="url(#neonCyan)" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Center Golden Kaaba Cube Accent -->
+  <polygon points="256,215 285,230 285,265 256,280 227,265 227,230" fill="url(#goldKaaba)" stroke="#FFE87C" stroke-width="3"/>
+  <line x1="256" y1="230" x2="256" y2="280" stroke="#996600" stroke-width="2"/>
+  <line x1="256" y1="230" x2="285" y2="215" stroke="#996600" stroke-width="2"/>
+  <line x1="256" y1="230" x2="227" y2="215" stroke="#996600" stroke-width="2"/>
+
+  <!-- 7 Nodes (7 Intelligence Domains) around perimeter -->
+  <circle cx="256" cy="66" r="12" fill="#00D4FF"/>
+  <circle cx="420" cy="148" r="12" fill="#FF6B00"/>
+  <circle cx="446" cy="326" r="12" fill="#00FF88"/>
+  <circle cx="321" cy="446" r="12" fill="#A855F7"/>
+  <circle cx="191" cy="446" r="12" fill="#00E5FF"/>
+  <circle cx="66" cy="326" r="12" fill="#FFFFFF"/>
+  <circle cx="92" cy="148" r="12" fill="#FFD700"/>
+</svg>

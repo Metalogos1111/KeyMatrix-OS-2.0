@@ -1,0 +1,62 @@
+{
+  "artifactType": "KM_SCENARIO_TRACE_001_ARCHITECTURE",
+  "taskId": "task-trace-arch-canonical-001",
+  "intent": "Проанализируй каноническую архитектуру Model 002 и проверь соблюдение инвариантов",
+  "actor": "MetaLogos",
+  "participatingCores": ["metalogos", "archivarius", "primecore"],
+  "participatingTools": ["tool-files"],
+  "steps": [
+    {
+      "stepId": "step-arch-1",
+      "type": "USER_INPUT",
+      "actor": "User",
+      "status": "COMPLETED",
+      "summary": "User prompt entered"
+    },
+    {
+      "stepId": "step-arch-2",
+      "type": "META_RESPONSE",
+      "actor": "MetaLogos",
+      "status": "COMPLETED",
+      "summary": "Intent decomposed into subtask graph"
+    },
+    {
+      "stepId": "step-arch-3",
+      "type": "CORE_HANDOFF",
+      "actor": "MetaLogos",
+      "target": "Archivarius",
+      "capability": "files.readWrite",
+      "status": "COMPLETED",
+      "summary": "CORE HANDOFF — NOT AUTHORITY DELEGATION. Reason: fetch Model 002 manifest"
+    },
+    {
+      "stepId": "step-arch-4",
+      "type": "TOOL_EXECUTION",
+      "actor": "ToolGateway",
+      "target": "tool-files",
+      "capability": "files.readWrite",
+      "status": "COMPLETED",
+      "summary": "Read canonical invariants file successfully"
+    },
+    {
+      "stepId": "step-arch-5",
+      "type": "CORE_HANDOFF",
+      "actor": "Archivarius",
+      "target": "PrimeCore",
+      "capability": "security.enforce",
+      "status": "COMPLETED",
+      "summary": "CORE HANDOFF — NOT AUTHORITY DELEGATION. Reason: verify security guardrails"
+    },
+    {
+      "stepId": "step-arch-6",
+      "type": "EVIDENCE_CAPTURE",
+      "actor": "PrimeCore",
+      "status": "COMPLETED",
+      "evidenceRef": "ev-arch-canonical-001",
+      "evidenceLevel": 4
+    }
+  ],
+  "authorityDecision": "ALLOWED",
+  "policyDecision": "PERMITTED",
+  "simulation": true
+}

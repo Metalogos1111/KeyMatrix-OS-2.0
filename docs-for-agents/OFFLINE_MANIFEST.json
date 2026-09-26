@@ -1,0 +1,27 @@
+{
+  "manifestVersion": "0.6.1",
+  "appName": "KeyMatrix OS",
+  "cacheName": "keymatrix-offline-v0.6.1",
+  "offlineCapabilities": {
+    "quranText": "FULL_TANZIL_OFFLINE_CACHE",
+    "prayerTimes": "MWL_UMM_AL_QURA_OFFLINE_TRIGONOMETRY",
+    "qibla": "SPHERICAL_TRIGONOMETRY_LOCAL_CALC",
+    "nurLedger": "IN_MEMORY_INDEXED_DB_SANDBOX",
+    "supportedLanguages": ["en", "ru", "az", "ar", "tr", "fa", "ur"]
+  },
+  "cachedResources": [
+    "/",
+    "/index.html",
+    "/manifest.json",
+    "/sw.js",
+    "/docs-for-agents/AGENT_BOOTSTRAP.md",
+    "/docs-for-agents/ADAPTER_AUTONOMY_SPEC.md",
+    "/docs-for-agents/OFFLINE_MANIFEST.json",
+    "/docs-for-agents/KEYMATRIX_MASTER_SYSTEM_MODEL_002.json",
+    "/docs-for-agents/KEYMATRIX_NUR_DIGITAL_CASH_EXECUTION_MODEL_001.json",
+    "/docs-for-agents/KM_DR_CROSS_SYSTEM_CONSISTENCY.json",
+    "/docs-for-agents/KM_AUTHORITY_DR_REMEDIATION.json",
+    "/docs-for-agents/KM_NEXT_STRONG_MOVES_DECISION_PACK.json",
+    "/docs-for-agents/KM-OS-CONCEPTUAL-RUNTIME-ENGINEERING-INSTRUCTION.json"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_TOOL_REGISTRY_001",
+  "status": "SIMULATION_ONLY",
+  "gateway_invariant": "Tool availability != authorization; Capability != Authority",
+  "tools": [
+    {
+      "toolId": "tool-web-search",
+      "name": "Web Search",
+      "category": "WEB_SEARCH",
+      "description": "Real-time knowledge ingestion with Shariah safety filter & verified source citations.",
+      "status": "SIMULATED",
+      "capabilityRequired": "net.search",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-files",
+      "name": "Files & Artifact Vault",
+      "category": "FILES",
+      "description": "Read and write artifacts to local sandbox workspace and Archivarius vault.",
+      "status": "AVAILABLE",
+      "capabilityRequired": "files.readWrite",
+      "riskLevel": "MEDIUM",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-terminal",
+      "name": "Terminal Sandbox",
+      "category": "TERMINAL",
+      "description": "Controlled command execution inside local container sandbox environment.",
+      "status": "SIMULATED",
+      "capabilityRequired": "terminal.execute",
+      "riskLevel": "HIGH",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-compute",
+      "name": "Deterministic Compute",
+      "category": "COMPUTE",
+      "description": "Mathematical routines, astronomical solar angles, and cryptographic hashing.",
+      "status": "AVAILABLE",
+      "capabilityRequired": "compute.math",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    },
+    {
+      "toolId": "tool-api",
+      "name": "External API Gateway",
+      "category": "API",
+      "description": "Sandboxed outbound HTTPS queries with strict domain allowlist.",
+      "status": "DISABLED",
+      "capabilityRequired": "api.outbound",
+      "riskLevel": "HIGH",
+      "simulationOnly": true,
+      "available": false
+    },
+    {
+      "toolId": "tool-por-sandbox",
+      "name": "PoR Resonance Diagnostic",
+      "category": "SANDBOX",
+      "description": "Calculates diagnostic harmonic resonance curves (Diagnostic only, non-final).",
+      "status": "AVAILABLE",
+      "capabilityRequired": "por.diagnose",
+      "riskLevel": "LOW",
+      "simulationOnly": true,
+      "available": true
+    }
+  ]
+}

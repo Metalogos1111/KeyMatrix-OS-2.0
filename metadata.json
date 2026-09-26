@@ -1,0 +1,7 @@
+{
+  "name": "KeyMatrix OS v2.0",
+  "description": "KeyMatrix OS - Humanity · AI · Knowledge · Action. Operational runtime prototype with Islamic civilization adapters, 7 Core Intelligence Domains, Qibla compass, and Evidence Ladder.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

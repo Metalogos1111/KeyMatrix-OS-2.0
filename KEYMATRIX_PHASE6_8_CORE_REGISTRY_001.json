@@ -1,0 +1,79 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_CORE_REGISTRY_001",
+  "status": "SIMULATION_AND_TARGET_RUNTIME_MODEL",
+  "invariant": "7 Cores are capability domains, not 7 independent chats or operating systems. Core collaboration != authority delegation.",
+  "cores": [
+    {
+      "coreId": "metalogos",
+      "displayName": "MetaLogos",
+      "shortDescription": "Reasoning, Intent Decomposition & Shura Orchestration",
+      "status": "AVAILABLE",
+      "capabilities": ["intent.decompose", "plan.generate", "core.orchestrate", "policy.evaluate"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": 4, "verified": true, "label": "Verified Operational Model" }
+    },
+    {
+      "coreId": "metaforge",
+      "displayName": "MetaForge",
+      "shortDescription": "Creation, Code Synthesis & Pipeline Compilation",
+      "status": "DORMANT",
+      "capabilities": ["code.synthesize", "pipeline.compile", "contract.verify", "artifact.package"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": 3, "verified": false, "label": "Sandbox Execution" }
+    },
+    {
+      "coreId": "primecore",
+      "displayName": "PrimeCore",
+      "shortDescription": "Security Arbiter, TEE Attestation & Shariah Guardrails",
+      "status": "AVAILABLE",
+      "capabilities": ["security.enforce", "tee.attest", "policy.guard", "hash.sign"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": 5, "verified": true, "label": "Cryptographic Invariant Gate" }
+    },
+    {
+      "coreId": "mindstate",
+      "displayName": "MindState",
+      "shortDescription": "Context Continuity, Dynamic Presence & Telemetry",
+      "status": "DORMANT",
+      "capabilities": ["context.vectorize", "session.continuity", "telemetry.filter"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": 3, "verified": false, "label": "Local Edge Memory" }
+    },
+    {
+      "coreId": "archivarius",
+      "displayName": "Archivarius",
+      "shortDescription": "Memory Vault, Merkle Proofs & Provenance Registry",
+      "status": "AVAILABLE",
+      "capabilities": ["evidence.store", "merkle.verify", "provenance.trace", "history.retrieve"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": 5, "verified": true, "label": "Append-Only Vault" }
+    },
+    {
+      "coreId": "singularity",
+      "displayName": "Singularity",
+      "shortDescription": "Civilizational Synthesis, Multi-Horizon Global Simulation",
+      "status": "DORMANT",
+      "capabilities": ["simulation.run", "impact.forecast", "synthesis.consolidate"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": "HOLD", "verified": false, "label": "Long-Horizon Simulation" }
+    },
+    {
+      "coreId": "nurcore",
+      "displayName": "NUR Core",
+      "shortDescription": "Ethical Economic Invariants & Impact Work Accounting",
+      "status": "AVAILABLE",
+      "capabilities": ["value.account", "reward.calculate", "zakat.audit", "impact.certify"],
+      "availability": true,
+      "simulationOnly": true,
+      "evidenceState": { "level": "SANDBOX", "verified": false, "label": "Sandbox Non-Settlement" }
+    }
+  ]
+}

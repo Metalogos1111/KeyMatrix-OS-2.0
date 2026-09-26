@@ -1,0 +1,22 @@
+{
+  "packId": "KM_DR_CROSS_SYSTEM_CONSISTENCY",
+  "version": "0.6.1",
+  "status": "PASS",
+  "hashAlgorithm": "HASH-001 (Canonical Alphabetical JSON + UTF-8 NFC + Fixed Float)",
+  "referenceSampleHash": "517c116cebb201101113ec99ca135ba8dd506d9a1d90ec57ef3705984113a338",
+  "nodes": {
+    "primary": {
+      "region": "ap-northeast-1",
+      "nodeId": "baku-core-hub-01",
+      "status": "ACTIVE",
+      "paGate": "PENDING_RUNTIME_RECOVERY"
+    },
+    "drReplica": {
+      "region": "eu-central-1",
+      "nodeId": "frankfurt-dr-02",
+      "status": "ACTIVE",
+      "paGate": "PENDING_RUNTIME_RECOVERY"
+    }
+  },
+  "verdict": "PASS"
+}

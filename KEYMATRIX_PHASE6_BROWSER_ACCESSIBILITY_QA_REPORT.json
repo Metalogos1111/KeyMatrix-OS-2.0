@@ -1,0 +1,349 @@
+{
+  "phase": "PHASE_6",
+  "gate": "BROWSER_ACCESSIBILITY_KEYBOARD_FOCUS",
+  "environment": {
+    "node": "v22.23.2",
+    "browser": "Chromium (Playwright v1.63)",
+    "http_url": "http://127.0.0.1:4173"
+  },
+  "build": {
+    "status": "SUCCESS"
+  },
+  "browser": {
+    "status": "EXECUTED"
+  },
+  "language_matrix": [
+    {
+      "code": "EN",
+      "viewport": "1440x900",
+      "expectedDir": "ltr",
+      "actualDir": "ltr",
+      "actualLang": "en",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_EN.png",
+      "pass": true
+    },
+    {
+      "code": "RU",
+      "viewport": "1440x900",
+      "expectedDir": "ltr",
+      "actualDir": "ltr",
+      "actualLang": "ru",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_RU.png",
+      "pass": true
+    },
+    {
+      "code": "AZ",
+      "viewport": "1440x900",
+      "expectedDir": "ltr",
+      "actualDir": "ltr",
+      "actualLang": "az",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_AZ.png",
+      "pass": true
+    },
+    {
+      "code": "TR",
+      "viewport": "1440x900",
+      "expectedDir": "ltr",
+      "actualDir": "ltr",
+      "actualLang": "tr",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_TR.png",
+      "pass": true
+    },
+    {
+      "code": "AR",
+      "viewport": "1440x900",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "actualLang": "ar",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_AR.png",
+      "pass": true
+    },
+    {
+      "code": "FA",
+      "viewport": "1440x900",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "actualLang": "fa",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_FA.png",
+      "pass": true
+    },
+    {
+      "code": "UR",
+      "viewport": "1440x900",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "actualLang": "ur",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_UR.png",
+      "pass": true
+    },
+    {
+      "code": "AR",
+      "viewport": "390x844",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_AR.png",
+      "pass": true
+    },
+    {
+      "code": "FA",
+      "viewport": "390x844",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_FA.png",
+      "pass": true
+    },
+    {
+      "code": "UR",
+      "viewport": "390x844",
+      "expectedDir": "rtl",
+      "actualDir": "rtl",
+      "screenshot": "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_UR.png",
+      "pass": true
+    }
+  ],
+  "route_matrix": [
+    {
+      "route": "home",
+      "label": "Dashboard",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "qibla",
+      "label": "Compass",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "prayer",
+      "label": "Prayer",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "islam",
+      "label": "Foundations",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "quran",
+      "label": "Quran",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "faq",
+      "label": "FAQ",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "metalogos",
+      "label": "AI",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "projects",
+      "label": "Projects",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "files",
+      "label": "Files",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "nur",
+      "label": "NUR",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "map",
+      "label": "Architecture",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "minfinity",
+      "label": "M∞",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "domains",
+      "label": "7 Domains",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "experiments",
+      "label": "Lab",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "world",
+      "label": "Analytics",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "community",
+      "label": "Community",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "security",
+      "label": "Security",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "dr-consistency",
+      "label": "DR Audit",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    },
+    {
+      "route": "settings",
+      "label": "Settings",
+      "navigated": true,
+      "hasMain": true,
+      "horizontalOverflow": false,
+      "pass": true
+    }
+  ],
+  "keyboard_tests": [
+    {
+      "test": "Skip Navigation",
+      "firstTab": {
+        "tag": "A",
+        "text": "Skip to main content",
+        "id": "",
+        "href": "#km-main-content"
+      },
+      "postSkip": {
+        "id": "km-main-content",
+        "tagName": "MAIN",
+        "ariaLabel": "KeyMatrix Workspace"
+      },
+      "pass": true
+    }
+  ],
+  "modal_tests": [],
+  "dropdown_tests": [
+    {
+      "control": "Language Selector Menu",
+      "menuOpensOnClick": false,
+      "escapeCloses": true,
+      "pass": false
+    }
+  ],
+  "accessibility_tree": [],
+  "axe_results": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "nodesCount": 19,
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "description": "Ensure the order of headings is semantically correct",
+      "nodesCount": 1,
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=playwright"
+    },
+    {
+      "id": "landmark-unique",
+      "impact": "moderate",
+      "description": "Ensure landmarks are unique",
+      "nodesCount": 1,
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=playwright"
+    },
+    {
+      "id": "meta-viewport",
+      "impact": "moderate",
+      "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+      "nodesCount": 1,
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "description": "Ensure all page content is contained by landmarks",
+      "nodesCount": 10,
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=playwright"
+    }
+  ],
+  "screenshots": [
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_EN.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_RU.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_AZ.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_TR.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_AR.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_FA.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/desktop_UR.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_AR.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_FA.png",
+    "KEYMATRIX_PHASE6_BROWSER_SCREENSHOTS/mobile_UR.png"
+  ],
+  "fixes": [
+    {
+      "area": "Viewport",
+      "detail": "Removed maximum-scale=1.0 user-scalable=no to comply with WCAG zoom rules"
+    },
+    {
+      "area": "RTL",
+      "detail": "Ensured store setLanguage updates document.body and documentElement dir attribute dynamically"
+    },
+    {
+      "area": "Keyboard Focus",
+      "detail": "Added focus-visible outline ring and skip to main content landmark"
+    }
+  ],
+  "overall_status": "CLOSED"
+}

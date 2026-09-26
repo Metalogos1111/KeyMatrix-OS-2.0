@@ -1,0 +1,77 @@
+{
+  "ledgerId": "KM-SOURCE-CONTINUITY-LEDGER-001",
+  "phase": "KEYMATRIX PHASE 7.0 — CONTROLLED MATERIALIZATION",
+  "owner": "MetaAI (Provenance Guard)",
+  "status": "ACTIVE_RECONCILED",
+  "timestamp": "2026-09-25T07:31:28Z",
+  "baselineGenesisDid": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+  "records": [
+    {
+      "artifactId": "art-001-groundtruth",
+      "canonicalName": "groundTruth.ts",
+      "class": "Reality Map",
+      "provenance": "SOURCE_CLAIM",
+      "authorDid": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "sha256": "4b68efac2c3de1a7009eefdf7c870ff0327f12e8c8a14b30e12dcfbb9a1811e5",
+      "historicalContext": "Historical reconstruction of M00-M16 layers baseline and initial design principles.",
+      "evidenceCap": "H1",
+      "status": "STABLE"
+    },
+    {
+      "artifactId": "art-002-baseline-prov",
+      "canonicalName": "baselineProvenance.ts",
+      "class": "Local Verification",
+      "provenance": "VERIFIED_INDEPENDENT_CAPTURE",
+      "authorDid": "did:key:z6MkjTgpK3b98U8vQ7oP3Vq2E9L4hN1cM5gZ7rX3yW8aD6F",
+      "sha256": "cb118293954bdf367f469da0c78e74d31e4f880cec923de107ed8f2482f0020d",
+      "historicalContext": "Execution path for independent verification and baseline replaying from genesis to event log hashing.",
+      "evidenceCap": "H3",
+      "status": "STABLE"
+    },
+    {
+      "artifactId": "art-003-agent-loop",
+      "canonicalName": "AgentLoop.ts",
+      "class": "Runtime Evidence",
+      "provenance": "VERIFIED_INDEPENDENT_CAPTURE",
+      "authorDid": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "sha256": "f5be1c6e1a12a32c25608ea7fef405c1d6837ca7d66be723be80cf890daee94f",
+      "historicalContext": "Bounded provider-agnostic multi-step local agent loop, restricted to OBSERVED limits.",
+      "evidenceCap": "H3",
+      "status": "STABLE"
+    },
+    {
+      "artifactId": "art-004-tool-gateway",
+      "canonicalName": "ToolGateway.ts",
+      "class": "Runtime Evidence",
+      "provenance": "VERIFIED_INDEPENDENT_CAPTURE",
+      "authorDid": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "sha256": "4b998cfdca0a22de64fbc78aa92e21bbd813ec7cf1d900ef58aefc511ca3e23c",
+      "historicalContext": "Secure tool registry, checkpoint rules, and local sandbox adapter execution path.",
+      "evidenceCap": "H3",
+      "status": "STABLE"
+    },
+    {
+      "artifactId": "art-005-shura-rules",
+      "canonicalName": "shuraRules.ts",
+      "class": "Local Verification",
+      "provenance": "VERIFIED_INDEPENDENT_CAPTURE",
+      "authorDid": "did:key:z6MkjTgpK3b98U8vQ7oP3Vq2E9L4hN1cM5gZ7rX3yW8aD6F",
+      "sha256": "1a0ea3bf50cdd60a66d0130f146be086d0bf732049e0c5aa811a21e49127d119",
+      "historicalContext": "Mathematical enforcement of Shura Rule #42 and multi-signature authorization limits.",
+      "evidenceCap": "H3",
+      "status": "STABLE"
+    }
+  ],
+  "antiCollisionSignatures": {
+    "MetaCore12": {
+      "verified": true,
+      "auditAction": "SEPARATED_FROM_RUNTIME",
+      "status": "OPEN_DRAFT"
+    },
+    "Q1_Q2_Quantum": {
+      "verified": true,
+      "auditAction": "ISOLATED_IN_DESIGN_LOGS",
+      "status": "OPEN_DRAFT"
+    }
+  }
+}

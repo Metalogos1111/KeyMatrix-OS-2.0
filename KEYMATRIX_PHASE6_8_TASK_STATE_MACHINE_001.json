@@ -1,0 +1,31 @@
+{
+  "version": "v2.1",
+  "phase": "6.8",
+  "document": "KEYMATRIX_PHASE6_8_TASK_STATE_MACHINE_001",
+  "status": "SIMULATION_ONLY",
+  "initial_state": "DRAFT",
+  "terminal_states": ["COMPLETED", "FAILED", "CANCELLED"],
+  "allowed_transitions": {
+    "DRAFT": ["PLANNED", "CANCELLED"],
+    "PLANNED": ["AWAITING_AUTHORIZATION", "RUNNING", "CANCELLED"],
+    "AWAITING_AUTHORIZATION": ["RUNNING", "CANCELLED", "FAILED"],
+    "RUNNING": [
+      "WAITING_FOR_TOOL",
+      "WAITING_FOR_CORE",
+      "VERIFYING",
+      "COMPLETED",
+      "FAILED",
+      "CANCELLED"
+    ],
+    "WAITING_FOR_TOOL": ["RUNNING", "FAILED", "CANCELLED"],
+    "WAITING_FOR_CORE": ["RUNNING", "FAILED", "CANCELLED"],
+    "VERIFYING": ["COMPLETED", "FAILED", "CANCELLED"],
+    "COMPLETED": [],
+    "FAILED": ["PLANNED"],
+    "CANCELLED": ["PLANNED"]
+  },
+  "invariants": {
+    "no_backend_finality_claimed": true,
+    "arbitrary_state_mutation_forbidden": true
+  }
+}

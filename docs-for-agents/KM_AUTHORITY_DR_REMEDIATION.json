@@ -1,0 +1,10 @@
+{
+  "packId": "KM_AUTHORITY_DR_REMEDIATION",
+  "version": "0.6.1",
+  "authoritySurfacesCount": 11,
+  "dbRpcExecuteGrantees": ["postgres", "service_role"],
+  "recomputedRecordsCount": 14285,
+  "requestHashMismatchGuards": 11,
+  "evidenceHashMismatchGuards: ": 11,
+  "remediationStatus": "FULLY_REMEDIATED"
+}

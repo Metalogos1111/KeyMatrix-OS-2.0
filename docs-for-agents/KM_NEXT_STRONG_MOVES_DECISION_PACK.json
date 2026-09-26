@@ -1,0 +1,12 @@
+{
+  "packId": "KM_NEXT_STRONG_MOVES_DECISION_PACK",
+  "version": "0.6.1",
+  "gate": "GATE v0.6.1 PRE-ZIP HARDENING",
+  "verdict": "PASS",
+  "nextMoves": [
+    "Move 1: Pre-zip Hardened Offline Autonomy with Fallback Trigonometry",
+    "Move 2: Composer Auto-Wiring Discovery Engine for Intent Ingress",
+    "Move 3: Full PWA Cache Pre-population including Quran & 7 Languages",
+    "Move 4: Antigravity WAN Bootstrapping & Latency Simulation"
+  ]
+}
