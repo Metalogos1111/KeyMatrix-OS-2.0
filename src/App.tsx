@@ -45,9 +45,10 @@ import { CommunityPage } from './components/pages/CommunityPage';
 import { SecurityPage } from './components/pages/SecurityPage';
 import { DRConsistencyPanel } from './components/dr/DRConsistencyPanel';
 import { SettingsPage } from './components/pages/SettingsPage';
+import { isSectionAllowedForRole } from './lib/authority/roleMatrix';
 
 export default function App() {
-  const { isRTL, language, activeSection } = useOSStore();
+  const { isRTL, language, activeSection, role } = useOSStore();
 
   useEffect(() => {
     // Synchronize HTML attributes for RTL/LTR
@@ -58,6 +59,29 @@ export default function App() {
   }, [isRTL, language]);
 
   const renderContent = () => {
+    // Fail-Closed Gate check: ensure the activeSection is permitted for current role
+    if (!isSectionAllowedForRole(role, activeSection)) {
+      return (
+        <div className="flex flex-col items-center justify-center min-h-[50vh] p-8 text-center bg-[#091122]/60 rounded-2xl border border-rose-500/20 backdrop-blur-md animate-fade-in" data-testid="access-denied-gate">
+          <div className="w-14 h-14 mb-4 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center border border-rose-500/40 text-xl font-mono font-bold">
+            !
+          </div>
+          <h2 className="text-lg font-bold text-white mb-2 tracking-wide uppercase font-mono">
+            Access Denied / Доступ Запрещен
+          </h2>
+          <p className="text-xs text-zinc-400 max-w-md mb-6 leading-relaxed">
+            Раздел <span className="font-mono text-cyan-400 font-bold">[{activeSection}]</span> недоступен для роли <span className="font-mono text-amber-400 font-bold">[{role}]</span> в соответствии с матрицей безопасности (Fail-Closed).
+          </p>
+          <button
+            onClick={() => useOSStore.getState().setActiveSection('home')}
+            className="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow-md"
+          >
+            На Главную
+          </button>
+        </div>
+      );
+    }
+
     switch (activeSection) {
       case 'qibla':
         return <QiblaPage />;

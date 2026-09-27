@@ -33,4 +33,9 @@ describe('B0a Fail-Closed Role Gate', () => {
     expect(isSectionAllowedForRole('Adult', 'security')).toBe(true);
     expect(isSectionAllowedForRole('Shura', 'settings')).toBe(true);
   });
+
+  it('should deny navigation to forbidden section in store when role is restricted', () => {
+    const isAllowedForChild = isSectionAllowedForRole('Child', 'security');
+    expect(isAllowedForChild).toBe(false);
+  });
 });

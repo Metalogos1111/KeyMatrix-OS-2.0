@@ -28,6 +28,7 @@ import {
   ShuraSigner,
   AuthorityCheckResult,
 } from '../lib/authority/shuraRules';
+import { isSectionAllowedForRole } from '../lib/authority/roleMatrix';
 import { evaluateGovernancePolicy, PolicyCheckResult } from '../lib/policy/governancePolicy';
 import { evaluatePoRGates, ResonanceMetrics, getDefaultResonanceMetrics } from '../lib/resonance';
 import { generateExecutionProof, GeneratedProof } from '../lib/evidence/evidenceEngine';
@@ -212,6 +213,11 @@ export const useOSStore = create<OSState>((set, get) => {
       }
     },
     setActiveSection: (section: ActiveSection) => {
+      const currentRole = get().role;
+      if (!isSectionAllowedForRole(currentRole, section)) {
+        get().addLog('SECURITY', `[FAIL-CLOSED] Отказ в навигации: раздел [${section}] недоступен для роли [${currentRole}]`, 'warning');
+        return;
+      }
       set({ activeSection: section, activeNavId: section });
       persistActiveSection(section);
       get().addLog('SYSTEM', `Навигация: переход в раздел [${section}]`, 'info');
@@ -312,9 +318,13 @@ export const useOSStore = create<OSState>((set, get) => {
     },
 
     setRole: (role: UserRole) => {
-      set({ role });
+      const currentSection = get().activeSection;
+      const isAllowed = isSectionAllowedForRole(role, currentSection);
+      const targetSection = isAllowed ? currentSection : 'home';
+      set({ role, activeSection: targetSection, activeNavId: targetSection });
       persistUserRole(role);
-      get().addLog('SHURA', `Роль изменена на [${role}]. Матрица прав и Shura Rule #42 синхронизированы.`, 'warning');
+      persistActiveSection(targetSection);
+      get().addLog('SHURA', `Роль изменена на [${role}]. Секция: [${targetSection}] (Матрица прав синхронизирована).`, 'warning');
     },
 
     setActiveNav: (id: string) => {
@@ -654,23 +664,24 @@ export const useOSStore = create<OSState>((set, get) => {
   };
 });
 
-// Restore persisted activeSection and activeRole on startup
+// Restore persisted activeSection and activeRole on startup with Fail-Closed gate
 if (typeof window !== 'undefined') {
-  getPersistedActiveSection().then((saved) => {
-    if (saved) {
-      useOSStore.setState({
-        activeSection: saved as ActiveSection,
-        activeNavId: saved,
-      });
-    }
-  }).catch(() => {});
+  Promise.all([getPersistedActiveSection(), getPersistedUserRole()])
+    .then(([savedSection, savedRole]) => {
+      const state = useOSStore.getState();
+      const role = (savedRole as UserRole) || state.role;
+      let section = (savedSection as ActiveSection) || state.activeSection;
 
-  getPersistedUserRole().then((savedRole) => {
-    if (savedRole) {
+      if (!isSectionAllowedForRole(role, section)) {
+        section = 'home';
+      }
+
       useOSStore.setState({
-        role: savedRole as UserRole,
+        role,
+        activeSection: section,
+        activeNavId: section,
       });
-    }
-  }).catch(() => {});
+    })
+    .catch(() => {});
 }
 
