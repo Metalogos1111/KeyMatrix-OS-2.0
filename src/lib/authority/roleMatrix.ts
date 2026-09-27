@@ -299,6 +299,6 @@ export function isSectionAllowedForRole(role: UserRole, section: ActiveSection):
     return role !== 'Child';
   }
   const config = ROLE_CAPABILITIES[role];
-  if (!config) return true;
+  if (!config) return false;
   return config.allowedSections.includes(section);
 }
