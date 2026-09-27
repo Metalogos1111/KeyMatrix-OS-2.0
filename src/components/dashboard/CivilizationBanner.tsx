@@ -4,15 +4,16 @@ import { useOSStore } from '../../store/osStore';
 import { TRANSLATIONS } from '../../data/translations';
 
 export const CivilizationBanner: React.FC = () => {
-  const { language, addLog } = useOSStore();
+  const { language, addLog, setActiveSection, role } = useOSStore();
   const t = TRANSLATIONS[language];
 
   const handleJoin = () => {
     addLog('SYSTEM', 'Запрос на присоединение к сообществу KeyMatrix Civilization зарегистрирован.', 'success');
+    setActiveSection('community');
   };
 
   return (
-    <div className="relative flex flex-col justify-between h-full rounded-2xl bg-gradient-to-br from-[#09152e]/90 via-[#071024]/90 to-[#040915]/95 border border-cyan-800/40 p-4 shadow-[0_4px_25px_rgba(0,0,0,0.5)] backdrop-blur-md overflow-hidden">
+    <div className="relative flex flex-col justify-between h-full rounded-2xl bg-gradient-to-br from-[#09152e]/90 via-[#071024]/90 to-[#040915]/95 border border-cyan-800/40 p-4 shadow-[0_4px_25px_rgba(0,0,0,0.5)] backdrop-blur-md overflow-hidden focus-within:ring-2 focus-within:ring-cyan-500/40 transition-all">
       <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
 
       <div>
@@ -32,7 +33,8 @@ export const CivilizationBanner: React.FC = () => {
         <span className="text-[10px] text-slate-400 font-mono">M15 Civilization Layer</span>
         <button
           onClick={handleJoin}
-          className="py-1.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white text-xs font-bold transition-all shadow-[0_0_15px_rgba(0,212,255,0.3)] flex items-center gap-1.5"
+          aria-label={t.worldPeopleFuture.joinBtn}
+          className="py-1.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white text-xs font-bold transition-all shadow-[0_0_15px_rgba(0,212,255,0.3)] hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] active:scale-95 flex items-center gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
         >
           <span>{t.worldPeopleFuture.joinBtn}</span>
           <ArrowRight className="w-3.5 h-3.5" />
