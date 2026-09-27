@@ -4,12 +4,12 @@ import { useOSStore } from '../../store/osStore';
 import { TRANSLATIONS } from '../../data/translations';
 
 export const CivilizationBanner: React.FC = () => {
-  const { language, addLog, setActiveSection, role } = useOSStore();
+  const { language, addLog, setCivilizationModalOpen } = useOSStore();
   const t = TRANSLATIONS[language];
 
   const handleJoin = () => {
-    addLog('SYSTEM', 'Запрос на присоединение к сообществу KeyMatrix Civilization зарегистрирован.', 'success');
-    setActiveSection('community');
+    addLog('SYSTEM', 'Открытие онбординга M15 Civilization Layer.', 'info');
+    setCivilizationModalOpen(true);
   };
 
   return (

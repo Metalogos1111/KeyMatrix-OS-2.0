@@ -88,6 +88,8 @@ interface OSState {
   isQuranModalOpen: boolean;
   isNurWalletModalOpen: boolean;
   isSafetyStatusModalOpen: boolean;
+  isCivilizationModalOpen: boolean;
+  setCivilizationModalOpen: (open: boolean) => void;
   selectedSafetyGate: 'failClosed' | 'consent' | 'privacy' | 'encrypt' | null;
 
   // Safety Status Widget State
@@ -233,6 +235,8 @@ export const useOSStore = create<OSState>((set, get) => {
     isQuranModalOpen: false,
     isNurWalletModalOpen: false,
     isSafetyStatusModalOpen: false,
+    isCivilizationModalOpen: false,
+    setCivilizationModalOpen: (open: boolean) => set({ isCivilizationModalOpen: open }),
     selectedSafetyGate: null,
 
     safetyStatusDetails: {
