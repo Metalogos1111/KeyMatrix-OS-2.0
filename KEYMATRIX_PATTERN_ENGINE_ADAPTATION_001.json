@@ -30,6 +30,8 @@
       "sourceUrl": "https://archive.ics.uci.edu/dataset/109/wine",
       "doi": "10.24432/C5PC7J",
       "license": "CC BY 4.0 (recorded from UCI source metadata)",
+      "licenseMetadataRecorded": true,
+      "testedCopyLicenseVerified": false,
       "freshDirectDownloadFromUci": false,
       "rows": 178,
       "features": 13,
@@ -89,7 +91,8 @@
     "runtimeReceiptObserved": false
   },
   "gates": {
-    "exploratoryCriteria": "PASS_WITH_SCOPE_LIMITATIONS",
+    "exploratoryCriteria": "HOLD_PROVENANCE_OF_TESTED_COPY_UNVERIFIED",
+    "testedCopyLicenseAndProvenance": "HOLD",
     "confirmatoryPermutationDepth": "HOLD",
     "independentExternalReplication": "HOLD",
     "independentSecondRealDataset": "HOLD",
@@ -97,9 +100,10 @@
     "promotionAllowed": false
   },
   "limitations": [
-    "Only one licensed real-world dataset and one 70/30 split are recorded.",
+    "Only one real-world dataset and one 70/30 split are recorded; the exact tested bundled copy licence/provenance is not independently verified.",
     "Real-data anomaly labels are not available; no real-world anomaly precision/recall claim is supported.",
     "99 permutations per test have coarse Monte Carlo resolution; >=999 are required for confirmatory work.",
+    "UCI catalogue licence metadata does not by itself verify the licence/provenance of the local scikit-learn-bundled copy used for the recorded run.",
     "This patch adds a pinned snapshot projection, not a live benchmark runner or host integration.",
     "No canonical source files are modified."
   ],
