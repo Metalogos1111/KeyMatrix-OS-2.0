@@ -1,0 +1,47 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-CONFIRMATORY-PLAN-003",
+  "version": "1.0.0-candidate",
+  "created_utc": "2026-10-27",
+  "mode": ["EVIDENCE_FIRST", "SANDBOX_ONLY", "READ_ONLY"],
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "purpose": "Increase Monte Carlo permutation resolution and independently re-seed the synthetic null-family experiment after the exploratory v0.1.3 run. This is a follow-up benchmark and not independent external replication.",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-CONFIRMATORY-BENCHMARK-003",
+  "seed": 20261028,
+  "dataset_origin": "SYNTHETIC_NULLS_PLUS_EXISTING_UCI_WINE_BUNDLED_COPY",
+  "null_test_design": {
+    "distributions": ["gaussian", "uniform", "heavy_tailed_t_like_df3"],
+    "families_per_distribution": 1000,
+    "hypotheses_per_family": 3,
+    "sample_size_per_hypothesis": 30,
+    "permutations_per_test": 999,
+    "nominal_alpha": 0.05,
+    "correction": "Holm step-down within each predeclared family of three null hypotheses",
+    "primary_metrics": ["raw_false_positive_rate", "raw_fpr_wilson_95_ci", "familywise_any_rejection_rate", "familywise_rejection_wilson_95_ci"],
+    "expected_total_hypothesis_tests": 9000,
+    "expected_total_permutations": 8991000
+  },
+  "acceptance_criteria": {
+    "null_families_minimum_per_distribution": 1000,
+    "raw_fpr_point_estimate_max": 0.06,
+    "raw_fpr_wilson95_upper_max": 0.075,
+    "holm_familywise_any_rejection_rate_max": 0.06,
+    "holm_familywise_wilson95_upper_max": 0.075,
+    "well_separated_cluster_purity_ge_0_90_rate_min": 0.95,
+    "outlier_recall_min_at_noise_sd_0_5_to_2": 0.90,
+    "real_dataset_holdout_required": true,
+    "license_and_source_provenance_required": true,
+    "untouched_holdout_required": true,
+    "independent_external_replication_required_before_promotion": true
+  },
+  "non_claims": [
+    "This rerun does not establish external independent replication.",
+    "The bundled UCI Wine dataset remains one real dataset; its split changes with the seed but it is not a second dataset.",
+    "Synthetic null calibration does not establish performance on arbitrary real-world distributions.",
+    "No real-data anomaly precision/recall is claimed because verified anomaly labels are absent.",
+    "No KeyMatrix runtime integration or promotion is authorized."
+  ],
+  "sha256": "ea1f1be09eb21ce67d5e34232373d71c603fb45fd392e87a4879356cd1ffcdee"
+}
