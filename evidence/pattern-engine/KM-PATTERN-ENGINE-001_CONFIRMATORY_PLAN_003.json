@@ -42,6 +42,5 @@
     "Synthetic null calibration does not establish performance on arbitrary real-world distributions.",
     "No real-data anomaly precision/recall is claimed because verified anomaly labels are absent.",
     "No KeyMatrix runtime integration or promotion is authorized."
-  ],
-  "sha256": "ea1f1be09eb21ce67d5e34232373d71c603fb45fd392e87a4879356cd1ffcdee"
+  ]
 }
