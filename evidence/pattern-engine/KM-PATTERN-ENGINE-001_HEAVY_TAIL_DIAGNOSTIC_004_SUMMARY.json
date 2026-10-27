@@ -1,0 +1,51 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-HEAVY-TAIL-DIAGNOSTIC-004",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-HEAVY-TAIL-DIAGNOSTIC-004",
+  "status": "EXECUTED_DIAGNOSTIC_NOT_REPLACEMENT_ACCEPTANCE",
+  "decision": "DIAGNOSTIC_THRESHOLD_CHECK_PASSES; GLOBAL_GATE_REMAINS_HOLD",
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "promotion_allowed": false,
+  "plan_sha256": "bbb6c6287ffe1d63efd851371afe1a65494a83569abdda0c043dca13cdf039dc",
+  "runner_script_sha256": "041c902759d80f170cadafd3c6da5903d641f09723662fbdf85343874d65dd50",
+  "results_sha256": "ae7a49d8605569b392d41b2a29c73ccfb1182f988e0e877e84a8f1ea4e1e5a08",
+  "seed": 20261029,
+  "distribution": "heavy_tailed_t_like_df3",
+  "families": 5000,
+  "hypotheses_per_family": 3,
+  "total_hypothesis_tests": 15000,
+  "permutations_per_test": 999,
+  "total_permutations": 14985000,
+  "raw_false_positives": 742,
+  "raw_fpr": 0.049466666666666666,
+  "raw_fpr_wilson95": [
+    0.046110441054878916,
+    0.05305359389605017
+  ],
+  "holm_false_positives": 228,
+  "holm_fpr": 0.0152,
+  "holm_fpr_wilson95": [
+    0.013362508788787858,
+    0.017285739533667938
+  ],
+  "familywise_any_rejections": 220,
+  "familywise_any_rejection_rate": 0.044,
+  "familywise_any_rejection_wilson95": [
+    0.038656640337733486,
+    0.05004350383615862
+  ],
+  "unchanged_thresholds": {
+    "rawFprPointMax": 0.06,
+    "rawFprWilsonUpperMax": 0.075,
+    "holmFwerPointMax": 0.06,
+    "holmFwerWilsonUpperMax": 0.075
+  },
+  "method": "Independent vectorized NumPy RNG permutation implementation; Holm step-down within each family of three.",
+  "limitations": [
+    "Targeted after observing follow-up 003; diagnostic only, not a replacement acceptance run.",
+    "Does not erase the recorded follow-up 003 failed criterion.",
+    "Does not establish external independent replication, a second real dataset, or runtime integration."
+  ]
+}
