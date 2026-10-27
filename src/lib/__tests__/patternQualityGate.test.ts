@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT } from '../../data/patternEngineAcceptanceSnapshot';
 import { PATTERN_ENGINE_CONFIRMATORY_003 } from '../../data/patternEngineConfirmatory003';
 import { PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004 } from '../../data/patternEngineDiagnostic004';
+import { PATTERN_ENGINE_SECOND_DATASET_005 } from '../../data/patternEngineSecondDataset005';
 import { evaluatePatternQualityGate, type PatternQualitySnapshot } from '../evidence/patternQualityGate';
 
 describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
@@ -79,6 +80,17 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.externalIndependentReplicationObserved).toBe(false);
     expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.runtimeIntegrationObserved).toBe(false);
     expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.promotionAllowed).toBe(false);
+  });
+
+  it('records second real dataset while preserving provenance and runtime blockers', () => {
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.secondDistinctRealDatasetExecuted).toBe(true);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.rows).toBe(569);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.features).toBe(30);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.trainRows + PATTERN_ENGINE_SECOND_DATASET_005.holdoutRows).toBe(569);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.testedCopyProvenanceFullyIndependentlyVerified).toBe(false);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.externalIndependentReplicationObserved).toBe(false);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.runtimeIntegrationObserved).toBe(false);
+    expect(PATTERN_ENGINE_SECOND_DATASET_005.promotionAllowed).toBe(false);
   });
 
   it('does not treat licence metadata as anomaly ground truth', () => {
