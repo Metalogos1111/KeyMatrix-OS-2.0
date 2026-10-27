@@ -16,6 +16,7 @@ export const PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT: PatternQualitySnapshot = {
     doi: '10.24432/C5PC7J',
     license: 'CC BY 4.0',
     licenseMetadataRecorded: true,
+    testedCopyLicenseVerified: false,
     loadedFromLocalBundle: true,
     freshlyDownloadedFromSource: false,
     rows: 178,
