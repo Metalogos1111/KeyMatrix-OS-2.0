@@ -35,17 +35,18 @@ Connect the observed KM-PATTERN-ENGINE-001 v0.1.3 acceptance snapshot to the exi
 - K-means purity >=0.90 rate: 100% on well-separated clusters, 87.8% with moderate overlap, 0% with heavy overlap.
 - Synthetic outlier recall: 100% in the recorded controlled scenarios. This is not real-world anomaly recall.
 - UCI Wine: 178 records / 13 features; stratified 124/54 train/holdout split. Held-out cluster transfer was 94.44% for one split, versus 38.89% majority-class baseline.
-- UCI identity and CC BY 4.0 licence metadata are recorded; the tested file came from the installed scikit-learn bundle, not a fresh UCI download. The CSV SHA-256 is pinned in the manifest.
+- UCI catalogue identity and CC BY 4.0 licence metadata are recorded; the tested file came from the installed scikit-learn bundle, not a fresh UCI download. The licence/provenance of that exact bundled copy is not independently verified, so the KeyMatrix dataset provenance gate now fails closed. The CSV SHA-256 is a recorded reference, not recomputed by this UI.
 - The real dataset has no verified anomaly labels, so no real-data anomaly precision/recall is claimed.
 
 ## Fail-closed gate behavior
 
 The evidence panel remains HOLD unless the metrics are complete and all declared bounds are met. Even then, it only becomes eligible for human review; the function never authorizes promotion. The current snapshot remains HOLD because:
-1. Confirmatory permutations are 99, below the required 999.
-2. External independent implementation/review is not observed.
-3. A second independent licensed real dataset is not observed.
-4. KeyMatrix runtime integration is not observed.
+1. The exact tested copy's licence/provenance is not independently verified.
+2. Confirmatory permutations are 99, below the required 999.
+3. External independent implementation/review is not observed.
+4. A second independent licensed real dataset is not observed.
+5. KeyMatrix runtime integration is not observed.
 
 ## Verification boundary
 
-This patch records source code and a pinned evidence snapshot. It does not claim that the UI was deployed, that runtime events were emitted, or that the current host loaded the module. A repository-level merge must still be followed by CI, a local app build, runtime observation, and independent replication. The canonical source repository is intentionally untouched.
+The gate also validates confidence-interval ordering, sample/permutation counts, and criteria ranges. This patch records source code and a pinned evidence snapshot. It does not claim that the UI was deployed, that runtime events were emitted, or that the current host loaded the module. A repository-level merge must still be followed by CI, a local app build, runtime observation, and independent replication. The canonical source repository is intentionally untouched.
