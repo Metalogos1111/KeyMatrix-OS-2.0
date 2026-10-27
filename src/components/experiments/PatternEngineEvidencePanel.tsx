@@ -2,6 +2,7 @@ import React from 'react';
 import { AlertTriangle, CheckCircle2, Database, FlaskConical, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT as snapshot } from '../../data/patternEngineAcceptanceSnapshot';
 import { PATTERN_ENGINE_CONFIRMATORY_003 as confirmatory } from '../../data/patternEngineConfirmatory003';
+import { PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004 as heavyTailDiagnostic } from '../../data/patternEngineDiagnostic004';
 import { evaluatePatternQualityGate } from '../../lib/evidence/patternQualityGate';
 
 const percent = (value: number) => (value * 100).toFixed(2) + '%';
@@ -103,6 +104,33 @@ export const PatternEngineEvidencePanel: React.FC = () => {
         </p>
       </section>
 
+      <section className="rounded-2xl border border-amber-500/35 bg-amber-950/10 p-4 space-y-2" data-testid="pattern-engine-heavy-tail-diagnostic-004">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-amber-300">Targeted diagnostic 004 · seed {heavyTailDiagnostic.seed}</div>
+            <h3 className="text-sm font-bold text-white">Heavy-tailed null: расширенная оценка неопределённости</h3>
+            <p className="mt-1 text-[11px] leading-relaxed text-slate-300">
+              {heavyTailDiagnostic.families.toLocaleString()} семейств · {heavyTailDiagnostic.permutationsPerTest} перестановок/тест · {heavyTailDiagnostic.totalHypothesisTests.toLocaleString()} тестов.
+              Диагностический прогон выбран после результата 003 и не заменяет предыдущую запись.
+            </p>
+          </div>
+          <div className="rounded-lg border border-amber-500/40 bg-amber-950/40 px-3 py-2 text-xs font-mono font-bold text-amber-200">
+            FWER {percent(heavyTailDiagnostic.familywiseAnyRejectionRate)}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <MetricCard label="Raw FPR" value={percent(heavyTailDiagnostic.rawFpr)} detail="Wilson 95% CI recorded" />
+          <MetricCard label="Holm familywise rate" value={percent(heavyTailDiagnostic.familywiseAnyRejectionRate)} detail="5000-family diagnostic" />
+          <MetricCard label="FWER 95% CI upper" value={percent(heavyTailDiagnostic.familywiseWilson95[1])} detail="frozen limit 7.50%" />
+        </div>
+        <p className="text-[11px] leading-relaxed text-amber-200">
+          Диагностический интервал находится ниже замороженного порога, но это не отменяет failed criterion в follow-up 003.
+          Общий статус остаётся HOLD до независимой внешней репликации, второго реального набора и наблюдения runtime-интеграции.
+        </p>
+        <p className="text-[10px] leading-relaxed text-slate-500">
+          Plan SHA-256: <span className="font-mono">{heavyTailDiagnostic.planSha256}</span> · Results SHA-256: <span className="font-mono">{heavyTailDiagnostic.resultsSha256}</span>
+        </p>
+      </section>
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <div className="rounded-2xl border border-cyan-900/50 bg-slate-950/70 p-4">
           <div className="mb-3 flex items-center gap-2">
