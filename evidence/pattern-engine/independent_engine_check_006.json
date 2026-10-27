@@ -1,0 +1,20 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-INDEPENDENT-ENGINE-CHECK-006",
+  "seed": 20261031,
+  "checks": {
+    "pearson": 1000,
+    "outliers": 1000,
+    "kmeans": 500
+  },
+  "total_checks": 2500,
+  "mismatches": 0,
+  "status": "PASS",
+  "runner_script_sha256": "70a67052403d48ce02eb624db8fec9652b8bc06e926e85f5d5b4f3ef97544828",
+  "local_result_sha256": "b0cfaa16784dcc29ce83e98c8bd98b6aba9f27d0dad044f24f0ca0fe0c627f66",
+  "method": "Separate standard-library implementations compared against candidate engine on deterministic randomized inputs.",
+  "limitations": [
+    "Local differential check only; not external independent replication.",
+    "K-means reimplementation follows the documented deterministic initialization and tie/empty-cluster contract.",
+    "Does not verify real-world generalization or runtime integration."
+  ]
+}
