@@ -3,6 +3,7 @@ import { AlertTriangle, CheckCircle2, Database, FlaskConical, ShieldAlert, Shiel
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT as snapshot } from '../../data/patternEngineAcceptanceSnapshot';
 import { PATTERN_ENGINE_CONFIRMATORY_003 as confirmatory } from '../../data/patternEngineConfirmatory003';
 import { PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004 as heavyTailDiagnostic } from '../../data/patternEngineDiagnostic004';
+import { PATTERN_ENGINE_SECOND_DATASET_005 as secondDataset } from '../../data/patternEngineSecondDataset005';
 import { evaluatePatternQualityGate } from '../../lib/evidence/patternQualityGate';
 
 const percent = (value: number) => (value * 100).toFixed(2) + '%';
@@ -129,6 +130,34 @@ export const PatternEngineEvidencePanel: React.FC = () => {
         </p>
         <p className="text-[10px] leading-relaxed text-slate-500">
           Plan SHA-256: <span className="font-mono">{heavyTailDiagnostic.planSha256}</span> · Results SHA-256: <span className="font-mono">{heavyTailDiagnostic.resultsSha256}</span>
+        </p>
+      </section>
+      <section className="rounded-2xl border border-cyan-500/30 bg-cyan-950/10 p-4 space-y-3" data-testid="pattern-engine-second-dataset-005">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-cyan-300">Second real dataset · benchmark 005 · seed {secondDataset.seed}</div>
+            <h3 className="text-sm font-bold text-white">{secondDataset.datasetName}</h3>
+            <p className="mt-1 text-[11px] leading-relaxed text-slate-300">
+              {secondDataset.rows} rows · {secondDataset.features} features · train {secondDataset.trainRows} / holdout {secondDataset.holdoutRows}. Scaling and cluster-to-class mapping were fit on training data only.
+            </p>
+          </div>
+          <div className="rounded-lg border border-cyan-500/40 bg-cyan-950/40 px-3 py-2 text-xs font-mono font-bold text-cyan-200">
+            EXECUTED · HOLD
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <MetricCard label="Holdout transfer accuracy" value={percent(secondDataset.holdoutTransferAccuracy)} detail="one stratified split" />
+          <MetricCard label="Balanced accuracy" value={percent(secondDataset.holdoutBalancedAccuracy)} detail="holdout only" />
+          <MetricCard label="Majority baseline" value={percent(secondDataset.majorityClassBaseline)} detail="train label majority" />
+        </div>
+        <p className="text-[11px] leading-relaxed text-amber-200">
+          UCI catalogue metadata records CC BY 4.0, but this run used the local scikit-learn copy, not a fresh UCI download. The exact tested-copy provenance remains unverified. This is a research benchmark, not a clinical claim.
+          External independent replication and KeyMatrix runtime integration remain NOT_OBSERVED; no promotion is authorized.
+        </p>
+        <p className="text-[10px] leading-relaxed text-slate-500">
+          UCI: <a className="underline" href={secondDataset.sourceUrl} target="_blank" rel="noreferrer">dataset 17 · DOI {secondDataset.doi}</a>
+          <span className="block font-mono mt-1">CSV SHA-256: {secondDataset.datasetSha256}</span>
+          <span className="block font-mono">Results SHA-256: {secondDataset.resultsSha256}</span>
         </p>
       </section>
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
