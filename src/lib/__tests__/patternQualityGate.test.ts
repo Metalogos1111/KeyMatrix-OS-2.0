@@ -10,6 +10,7 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     expect(result.promotionAllowed).toBe(false);
     expect(result.authority).toBe('NONE');
     expect(result.canonicalSot).toBe('READ_ONLY');
+    expect(PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.hashVerificationMode).toBe('RECORDED_REFERENCE_ONLY');
     expect(result.blockers).toContain('HOLD_CONFIRMATORY_PERMUTATION_DEPTH_INSUFFICIENT');
     expect(result.blockers).toContain('HOLD_EXTERNAL_INDEPENDENT_REPLICATION_NOT_OBSERVED');
     expect(result.blockers).toContain('HOLD_SECOND_REAL_DATASET_NOT_OBSERVED');
