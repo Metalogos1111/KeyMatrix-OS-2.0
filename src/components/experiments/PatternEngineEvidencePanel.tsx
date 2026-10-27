@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertTriangle, CheckCircle2, Database, FlaskConical, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT as snapshot } from '../../data/patternEngineAcceptanceSnapshot';
+import { PATTERN_ENGINE_CONFIRMATORY_003 as confirmatory } from '../../data/patternEngineConfirmatory003';
 import { evaluatePatternQualityGate } from '../../lib/evidence/patternQualityGate';
 
 const percent = (value: number) => (value * 100).toFixed(2) + '%';
@@ -39,7 +40,7 @@ export const PatternEngineEvidencePanel: React.FC = () => {
           <MetricCard label="Exploratory checks" value={snapshot.exploratoryAcceptance.checksPassed + '/' + snapshot.exploratoryAcceptance.checksTotal} detail="passed in recorded run" />
           <MetricCard label="Null families" value="3 × 1,000" detail="9,000 total hypothesis tests" />
           <MetricCard label="Holm FWER (range)" value="2.20–3.50%" detail="synthetic null families" />
-          <MetricCard label="Confirmatory permutations" value={String(snapshot.confirmatoryPermutationsPerTest)} detail={'required ≥ ' + snapshot.criteria.minConfirmatoryPermutationsPerTest} />
+          <MetricCard label="Permutations (v0.1.3)" value={String(snapshot.confirmatoryPermutationsPerTest)} detail="follow-up 003: 999; see below" />
         </div>
 
         <div className="mt-4 rounded-xl border border-amber-500/25 bg-black/30 p-3">
@@ -48,12 +49,59 @@ export const PatternEngineEvidencePanel: React.FC = () => {
             <div>
               <div className="text-xs font-bold text-amber-200">Обязательные незакрытые гейты</div>
               <p className="mt-1 text-[11px] leading-relaxed text-slate-300">
-                Требуется не менее 999 перестановок на тест, внешняя независимая репликация и второй независимый лицензированный набор. Интеграция с KeyMatrix runtime пока не наблюдалась.
+                Follow-up 003 выполнил 999 перестановок на тест, но один критерий не прошёл: верхняя граница FWER для heavy-tailed = 7.536% при максимуме 7.5%. Внешняя репликация, второй набор и runtime-интеграция не наблюдались.
               </p>
             </div>
           </div>
         </div>
       </div>
+
+      <section className="rounded-2xl border border-rose-500/40 bg-rose-950/15 p-4 space-y-3" data-testid="pattern-engine-confirmatory-003">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-rose-300">Confirmatory-depth follow-up 003 · seed {confirmatory.seed}</div>
+            <h3 className="text-sm font-bold text-white">999 перестановок на тест — результат HOLD</h3>
+            <p className="mt-1 text-[11px] leading-relaxed text-slate-300">
+              {confirmatory.totalHypothesisTests.toLocaleString()} гипотез · {confirmatory.totalPermutationDraws.toLocaleString()} перестановок · независимый векторизованный NumPy RNG для permutation sampling.
+              Это follow-up на новом seed, а не внешняя независимая репликация.
+            </p>
+          </div>
+          <div className="rounded-lg border border-rose-500/40 bg-rose-950/50 px-3 py-2 text-xs font-mono font-bold text-rose-200">
+            HOLD · {confirmatory.acceptanceChecksPassed}/{confirmatory.acceptanceChecksTotal}
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[620px] text-left text-[11px]">
+            <thead className="border-b border-rose-900/50 text-[10px] uppercase text-slate-500">
+              <tr>
+                <th className="py-2 pr-3">Null distribution</th>
+                <th className="py-2 pr-3">Raw FPR</th>
+                <th className="py-2 pr-3">Raw CI upper</th>
+                <th className="py-2 pr-3">Holm FWER</th>
+                <th className="py-2 pr-3">FWER CI upper</th>
+              </tr>
+            </thead>
+            <tbody>
+              {confirmatory.nullResults.map((item) => (
+                <tr key={item.distribution} className="border-b border-slate-900 text-slate-300">
+                  <td className="py-2 pr-3 font-mono">{item.distribution}</td>
+                  <td className="py-2 pr-3">{percent(item.rawFpr)}</td>
+                  <td className="py-2 pr-3">{percent(item.rawFprWilson95[1])}</td>
+                  <td className="py-2 pr-3">{percent(item.familywiseAnyRejectionRate)}</td>
+                  <td className={item.distribution === 'heavy_tailed' ? 'py-2 pr-3 font-bold text-rose-300' : 'py-2 pr-3'}>{percent(item.familywiseWilson95[1])}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[11px] leading-relaxed text-rose-200">
+          Критерий {confirmatory.failedCriterion.id}: {(confirmatory.failedCriterion.observed * 100).toFixed(4)}% превышает неизменённый предел {(confirmatory.failedCriterion.maximum * 100).toFixed(2)}%.
+          Порог не смягчался. Необходимо расследование heavy-tailed калибровки и независимое воспроизведение.
+        </p>
+        <p className="text-[10px] leading-relaxed text-slate-500">
+          Plan SHA-256: <span className="font-mono">{confirmatory.planSha256}</span> · Results SHA-256: <span className="font-mono">{confirmatory.resultsSha256}</span>
+        </p>
+      </section>
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <div className="rounded-2xl border border-cyan-900/50 bg-slate-950/70 p-4">
