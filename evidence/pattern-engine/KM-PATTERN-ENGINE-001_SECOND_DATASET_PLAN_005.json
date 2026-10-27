@@ -1,0 +1,42 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-SECOND-DATASET-PLAN-005",
+  "created_utc": "2026-10-27",
+  "mode": ["EVIDENCE_FIRST", "SANDBOX_ONLY", "READ_ONLY"],
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-SECOND-DATASET-BENCHMARK-005",
+  "purpose": "Evaluate train-only clustering transfer on a second real dataset to test limited cross-dataset generalization. Research-only; not a medical tool, diagnosis, or clinical claim.",
+  "seed": 20261030,
+  "dataset": {
+    "name": "Breast Cancer Wisconsin (Diagnostic)",
+    "uci_dataset_id": 17,
+    "source_url": "https://archive.ics.uci.edu/dataset/17/breast-cancer",
+    "doi": "10.24432/C5DW2B",
+    "license": "CC BY 4.0 according to UCI catalogue metadata",
+    "loading_path": "scikit-learn load_breast_cancer local bundled copy; no fresh direct UCI download",
+    "expected_rows": 569,
+    "expected_features": 30,
+    "classes": ["malignant", "benign"]
+  },
+  "design": {
+    "split": "stratified 70/30 train/holdout",
+    "random_seed": 20261030,
+    "feature_scaling_fit_on_train_only": true,
+    "cluster_fit": "candidate engine kmeans, k=2, train features only",
+    "cluster_to_class_mapping_fit_on_train_labels_only": true,
+    "holdout_labels_used_for_fit_or_mapping": false,
+    "primary_metrics": ["holdout_transfer_accuracy", "balanced_accuracy", "majority_class_baseline", "confusion_matrix"],
+    "outlier_analysis": "descriptive only; no verified anomaly labels or anomaly precision/recall claims"
+  },
+  "acceptance_and_limits": {
+    "dataset_identity_and_shape_must_match": true,
+    "dataset_snapshot_sha256_must_be_recorded": true,
+    "source_license_metadata_must_be_recorded": true,
+    "tested_copy_provenance_must_be_disclosed": true,
+    "this_single_run_does_not_equal_external_independent_replication": true,
+    "no_clinical_claim": true,
+    "no_runtime_integration_or_promotion": true
+  }
+}
