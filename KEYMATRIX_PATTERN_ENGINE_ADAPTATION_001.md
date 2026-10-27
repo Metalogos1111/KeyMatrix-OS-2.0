@@ -11,7 +11,7 @@ Connect the observed KM-PATTERN-ENGINE-001 v0.1.3 acceptance snapshot to the exi
 ## Repository changes in this candidate
 
 - src/lib/evidence/patternQualityGate.ts — pure fail-closed evaluator for a pinned evidence snapshot.
-- src/data/patternEngineAcceptanceSnapshot.ts — snapshot values and SHA-256 provenance references.
+- src/data/patternEngineAcceptanceSnapshot.ts — snapshot values and recorded SHA-256 references; no runtime file hashing.
 - src/components/experiments/PatternEngineEvidencePanel.tsx — static evidence presentation mounted under the existing Experiments page.
 - src/lib/__tests__/patternQualityGate.test.ts — tests for expected HOLD state, falsified FPR bound, malformed hashes, and the no-real-anomaly-label boundary.
 - KEYMATRIX_PATTERN_ENGINE_ADAPTATION_001.json — project manifest and cross-layer mapping.
@@ -21,7 +21,7 @@ Connect the observed KM-PATTERN-ENGINE-001 v0.1.3 acceptance snapshot to the exi
 | KeyMatrix concern | Adaptation | Boundary |
 |---|---|---|
 | M01 / UX | Fourth tab in the existing Experiments workspace | Presentation only; it is explicitly a persisted snapshot |
-| M05 / Evidence Ladder | Hash-bound candidate, results, and dataset snapshot | SHA-256 establishes byte identity, not truth |
+| M05 / Evidence Ladder | Hash-referenced candidate, results, and dataset snapshot | Hashes are recorded by the UI, not recomputed; an independently recomputed digest establishes byte identity only, not semantic truth |
 | M06 / Proof of Resonance | No score, threshold, or finality changes | Pattern detection is an independent research domain |
 | M08 / orchestration | Derived report may be consumed later as research evidence | No authority or action permission is inferred |
 | M09 / adapters | Dataset provenance contract prepared for future source adapters | No network connector is added here |
