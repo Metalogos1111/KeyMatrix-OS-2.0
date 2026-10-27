@@ -9,6 +9,7 @@ export const PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT: PatternQualitySnapshot = {
   candidateVersion: '0.1.3-candidate',
   benchmarkZipSha256: '5ee0fe0d148ac216547dcfa903458b85c12914513acb2d2608360d4789c25e28',
   resultsJsonSha256: '8100eb75e8e8494b96ab337110b0d9feb1a660abe94524db582571a960c2de45',
+  hashVerificationMode: 'RECORDED_REFERENCE_ONLY',
   dataset: {
     name: 'Wine recognition',
     sourceUrl: 'https://archive.ics.uci.edu/dataset/109/wine',
