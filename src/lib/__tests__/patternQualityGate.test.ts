@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT } from '../../data/patternEngineAcceptanceSnapshot';
 import { PATTERN_ENGINE_CONFIRMATORY_003 } from '../../data/patternEngineConfirmatory003';
+import { PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004 } from '../../data/patternEngineDiagnostic004';
 import { evaluatePatternQualityGate, type PatternQualitySnapshot } from '../evidence/patternQualityGate';
 
 describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
@@ -67,6 +68,17 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     expect(PATTERN_ENGINE_CONFIRMATORY_003.externalIndependentReplicationObserved).toBe(false);
     expect(PATTERN_ENGINE_CONFIRMATORY_003.runtimeIntegrationObserved).toBe(false);
     expect(PATTERN_ENGINE_CONFIRMATORY_003.promotionAllowed).toBe(false);
+  });
+
+  it('keeps targeted heavy-tailed diagnostic 004 separate from acceptance status', () => {
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.families).toBe(5000);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.permutationsPerTest).toBe(999);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.familywiseWilson95[1]).toBeLessThan(0.075);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.selectedAfterFollowUp003Failure).toBe(true);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.original003FailureErased).toBe(false);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.externalIndependentReplicationObserved).toBe(false);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.runtimeIntegrationObserved).toBe(false);
+    expect(PATTERN_ENGINE_HEAVY_TAIL_DIAGNOSTIC_004.promotionAllowed).toBe(false);
   });
 
   it('does not treat licence metadata as anomaly ground truth', () => {
