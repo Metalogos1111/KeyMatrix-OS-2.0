@@ -44,6 +44,7 @@ export interface PatternQualitySnapshot {
     doi: string;
     license: string;
     licenseMetadataRecorded: boolean;
+    testedCopyLicenseVerified: boolean;
     loadedFromLocalBundle: boolean;
     freshlyDownloadedFromSource: boolean;
     rows: number;
@@ -95,6 +96,9 @@ const isUnitInterval = (value: unknown): value is number =>
   isFiniteNumber(value) && value >= 0 && value <= 1;
 const isSha256 = (value: unknown): value is string =>
   typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value);
+const isConfidenceInterval = (value: unknown): value is [number, number] =>
+  Array.isArray(value) && value.length === 2 && isUnitInterval(value[0]) &&
+  isUnitInterval(value[1]) && value[0] <= value[1];
 
 /**
  * Fail-closed evaluation of the pinned evidence snapshot.
@@ -125,6 +129,14 @@ export function evaluatePatternQualityGate(
   if (!Array.isArray(input.clustering) || input.clustering.length === 0) shapeErrors.push('CLUSTERING_RESULTS_MISSING');
   if (!Array.isArray(input.outliers) || input.outliers.length === 0) shapeErrors.push('OUTLIER_RESULTS_MISSING');
   if (!input.criteria || !input.exploratoryAcceptance) shapeErrors.push('GATE_CRITERIA_MISSING');
+  if (input.criteria && (!isUnitInterval(input.criteria.alpha) || input.criteria.alpha === 0 ||
+      !Number.isInteger(input.criteria.minNullFamiliesPerDistribution) || input.criteria.minNullFamiliesPerDistribution < 1 ||
+      !isUnitInterval(input.criteria.maxRawFpr) || !isUnitInterval(input.criteria.maxRawFprWilson95Upper) ||
+      !isUnitInterval(input.criteria.maxFamilywiseAnyRejectionRate) || !isUnitInterval(input.criteria.maxFamilywiseWilson95Upper) ||
+      !isUnitInterval(input.criteria.minSeparatedClusterSuccessRate) || !isUnitInterval(input.criteria.minOutlierRecallAtSd05To2) ||
+      !Number.isInteger(input.criteria.minConfirmatoryPermutationsPerTest) || input.criteria.minConfirmatoryPermutationsPerTest < 1)) {
+    shapeErrors.push('GATE_CRITERIA_INVALID');
+  }
   if (shapeErrors.length > 0) return invalid(shapeErrors);
 
   const checks: PatternQualityGateEvaluation['checks'] = [];
@@ -144,10 +156,10 @@ export function evaluatePatternQualityGate(
     }
     const valid = Number.isInteger(stratum.families) &&
       stratum.families >= input.criteria.minNullFamiliesPerDistribution &&
-      isUnitInterval(stratum.rawFpr) &&
-      isUnitInterval(stratum.rawFprWilson95?.[1]) &&
-      isUnitInterval(stratum.familywiseAnyRejectionRate) &&
-      isUnitInterval(stratum.familywiseAnyRejectionWilson95?.[1]);
+      Number.isInteger(stratum.testsPerFamily) && stratum.testsPerFamily >= 1 &&
+      Number.isInteger(stratum.permutationsPerTest) && stratum.permutationsPerTest >= 1 &&
+      isUnitInterval(stratum.rawFpr) && isConfidenceInterval(stratum.rawFprWilson95) &&
+      isUnitInterval(stratum.familywiseAnyRejectionRate) && isConfidenceInterval(stratum.familywiseAnyRejectionWilson95);
     addCheck(
       'NULL_' + label + '_SAMPLE_AND_RATES_VALID',
       valid,
@@ -177,7 +189,9 @@ export function evaluatePatternQualityGate(
   addCheck(
     'CLUSTER_WELL_SEPARATED',
     Boolean(separated) &&
+      isUnitInterval(separated?.meanClusterPurity) &&
       isUnitInterval(separated?.purityAtLeast90Rate) &&
+      isConfidenceInterval(separated?.purityAtLeast90Wilson95) &&
       (separated?.replicates ?? 0) >= 1000 &&
       (separated?.purityAtLeast90Rate ?? -1) >= input.criteria.minSeparatedClusterSuccessRate,
     separated
@@ -191,7 +205,9 @@ export function evaluatePatternQualityGate(
     addCheck(
       'OUTLIER_RECALL_SD_' + String(requiredSd).replace('.', '_'),
       Boolean(scenario) &&
+        isUnitInterval(scenario?.precision) &&
         isUnitInterval(scenario?.recall) &&
+        Number.isFinite(scenario?.backgroundSd) &&
         (scenario?.replicates ?? 0) >= 1000 &&
         (scenario?.recall ?? -1) >= input.criteria.minOutlierRecallAtSd05To2,
       scenario
@@ -206,14 +222,17 @@ export function evaluatePatternQualityGate(
     'DATASET_LICENSE_AND_PROVENANCE',
     Boolean(data.name && data.sourceUrl && data.doi && data.license) &&
       data.licenseMetadataRecorded &&
+      data.testedCopyLicenseVerified &&
       data.loadedFromLocalBundle &&
       !data.freshlyDownloadedFromSource,
-    'UCI identity/licence metadata recorded; tested copy loaded from local scikit-learn bundle, not a fresh UCI download.',
+    'UCI catalogue metadata is recorded; the tested local bundle copy's licence/provenance must also be verified.',
     'DATASET_PROVENANCE_OR_LICENSE_INCOMPLETE',
   );
   addCheck(
     'DATASET_HOLDOUT_SEPARATION',
-    Number.isInteger(data.trainRows) &&
+    Number.isInteger(data.rows) && data.rows > 0 &&
+      Number.isInteger(data.features) && data.features > 0 &&
+      Number.isInteger(data.trainRows) &&
       Number.isInteger(data.holdoutRows) &&
       data.trainRows > 0 &&
       data.holdoutRows > 0 &&
