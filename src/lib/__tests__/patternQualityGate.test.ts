@@ -3,9 +3,10 @@ import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT } from '../../data/patternEngineAcce
 import { evaluatePatternQualityGate, type PatternQualitySnapshot } from '../evidence/patternQualityGate';
 
 describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
-  it('keeps promotion blocked when the bounded exploratory snapshot passes', () => {
+  it('keeps promotion blocked and flags unverified tested-copy licensing', () => {
     const result = evaluatePatternQualityGate(PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT);
-    expect(result.exploratoryCriteriaPass).toBe(true);
+    expect(result.exploratoryCriteriaPass).toBe(false);
+    expect(result.blockers).toContain('DATASET_PROVENANCE_OR_LICENSE_INCOMPLETE');
     expect(result.status).toBe('HOLD');
     expect(result.promotionAllowed).toBe(false);
     expect(result.authority).toBe('NONE');
@@ -41,8 +42,21 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     expect(result.blockers).toContain('RESULTS_JSON_SHA256_INVALID');
   });
 
+  it('rejects malformed confidence intervals instead of trusting only the upper bound', () => {
+    const altered: PatternQualitySnapshot = {
+      ...PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT,
+      nullCalibration: PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.nullCalibration.map((item) =>
+        item.distribution === 'gaussian' ? { ...item, rawFprWilson95: [0.9, 0.2] as [number, number] } : item,
+      ),
+    };
+    const result = evaluatePatternQualityGate(altered);
+    expect(result.status).toBe('HOLD');
+    expect(result.blockers).toContain('NULL_STRATUM_INVALID:gaussian');
+  });
+
   it('does not treat licence metadata as anomaly ground truth', () => {
     expect(PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.dataset.license).toBe('CC BY 4.0');
+    expect(PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.dataset.testedCopyLicenseVerified).toBe(false);
     expect(PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.dataset.realOutlierLabelsAvailable).toBe(false);
   });
 });
