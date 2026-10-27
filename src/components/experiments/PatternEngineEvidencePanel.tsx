@@ -12,7 +12,7 @@ export const PatternEngineEvidencePanel: React.FC = () => {
   const heavy = snapshot.clustering.find((item) => item.scenario === 'heavy_overlap');
 
   return (
-    <section className="space-y-4" data-testid="pattern-engine-evidence-panel" aria-labelledby="pattern-engine-title">
+    <section id="pattern-engine-evidence-panel" className="space-y-4" data-testid="pattern-engine-evidence-panel" aria-labelledby="pattern-engine-title">
       <div className="rounded-2xl border border-amber-500/35 bg-gradient-to-r from-[#151426]/90 via-[#0a1b3a]/80 to-[#040a17]/90 p-5 shadow-xl">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
