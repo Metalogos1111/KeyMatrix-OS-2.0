@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: 22.20.0
           cache: npm
-      - name: Install locked dependencies
-        run: npm ci
+      - name: Resolve dependencies from manifest
+        run: npm install --no-audit --no-fund
       - name: TypeScript check
         run: npm run lint
       - name: Unit tests
