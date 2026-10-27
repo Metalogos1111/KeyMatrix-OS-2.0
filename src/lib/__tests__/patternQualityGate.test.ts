@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT } from '../../data/patternEngineAcceptanceSnapshot';
+import { PATTERN_ENGINE_CONFIRMATORY_003 } from '../../data/patternEngineConfirmatory003';
 import { evaluatePatternQualityGate, type PatternQualitySnapshot } from '../evidence/patternQualityGate';
 
 describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
@@ -52,6 +53,20 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     const result = evaluatePatternQualityGate(altered);
     expect(result.status).toBe('HOLD');
     expect(result.blockers).toContain('NULL_STRATUM_INVALID:gaussian');
+  });
+
+  it('preserves the confirmatory 003 failed threshold without authorizing promotion', () => {
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.permutationsPerTest).toBe(999);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.acceptanceChecksPassed).toBe(19);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.acceptanceChecksTotal).toBe(20);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.allPass).toBe(false);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.failedCriterion.id).toBe('heavy_tailed_holm_familywise_ci_upper');
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.failedCriterion.observed).toBeGreaterThan(
+      PATTERN_ENGINE_CONFIRMATORY_003.failedCriterion.maximum,
+    );
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.externalIndependentReplicationObserved).toBe(false);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.runtimeIntegrationObserved).toBe(false);
+    expect(PATTERN_ENGINE_CONFIRMATORY_003.promotionAllowed).toBe(false);
   });
 
   it('does not treat licence metadata as anomaly ground truth', () => {
