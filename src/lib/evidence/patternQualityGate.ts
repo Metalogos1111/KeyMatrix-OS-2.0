@@ -225,7 +225,7 @@ export function evaluatePatternQualityGate(
       data.testedCopyLicenseVerified &&
       data.loadedFromLocalBundle &&
       !data.freshlyDownloadedFromSource,
-    'UCI catalogue metadata is recorded; the tested local bundle copy's licence/provenance must also be verified.',
+    "UCI catalogue metadata is recorded; the tested local bundle copy's licence/provenance must also be verified.",
     'DATASET_PROVENANCE_OR_LICENSE_INCOMPLETE',
   );
   addCheck(
