@@ -37,7 +37,7 @@ export const PatternEngineEvidencePanel: React.FC = () => {
 
         <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
           <MetricCard label="Exploratory checks" value={snapshot.exploratoryAcceptance.checksPassed + '/' + snapshot.exploratoryAcceptance.checksTotal} detail="passed in recorded run" />
-          <MetricCard label="Null families" value="3 × 1,000" detail="3,000 total hypothesis tests" />
+          <MetricCard label="Null families" value="3 × 1,000" detail="9,000 total hypothesis tests" />
           <MetricCard label="Holm FWER (range)" value="2.20–3.50%" detail="synthetic null families" />
           <MetricCard label="Confirmatory permutations" value={String(snapshot.confirmatoryPermutationsPerTest)} detail={'required ≥ ' + snapshot.criteria.minConfirmatoryPermutationsPerTest} />
         </div>
