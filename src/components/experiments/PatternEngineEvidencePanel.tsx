@@ -105,7 +105,7 @@ export const PatternEngineEvidencePanel: React.FC = () => {
       <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
         <div className="mb-3 flex items-center gap-2">
           <Database className="h-4 w-4 text-cyan-300" />
-          <h3 className="text-sm font-bold text-white">Лицензированный реальный набор данных</h3>
+          <h3 className="text-sm font-bold text-white">Набор данных: источник и provenance</h3>
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           <MetricCard label="Dataset" value="UCI Wine" detail={snapshot.dataset.rows + ' records · ' + snapshot.dataset.features + ' features'} />
@@ -114,7 +114,7 @@ export const PatternEngineEvidencePanel: React.FC = () => {
           <MetricCard label="Anomaly labels" value="Unavailable" detail="no real-data outlier precision/recall claim" />
         </div>
         <p className="mt-3 text-[11px] leading-relaxed text-slate-400">
-          Источник и лицензия CC BY 4.0 зафиксированы по метаданным UCI; проверенная копия загружена из локального пакета scikit-learn, а не повторно скачана с UCI. Один набор и один split не являются независимой внешней репликацией.
+          Метаданные каталога UCI указывают CC BY 4.0, но лицензия и происхождение именно тестировавшейся копии из локального пакета scikit-learn независимо не подтверждены. Поэтому provenance gate остаётся закрытым. Один набор и один split не являются независимой внешней репликацией.
         </p>
         <a className="mt-2 inline-flex text-xs text-cyan-300 underline decoration-cyan-800 underline-offset-4 hover:text-cyan-200" href={snapshot.dataset.sourceUrl} target="_blank" rel="noreferrer">
           Открыть запись UCI Machine Learning Repository
