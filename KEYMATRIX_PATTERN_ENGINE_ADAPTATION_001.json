@@ -1,0 +1,118 @@
+{
+  "artifactId": "KEYMATRIX_PATTERN_ENGINE_ADAPTATION_001",
+  "projectId": "KM-PATTERN-ENGINE-001",
+  "version": "1.0.0-candidate",
+  "createdAtUtc": "2026-10-27",
+  "targetRepository": "Metalogos1111/KeyMatrix-OS-2.0",
+  "targetBranch": "feat/km-pattern-engine-evidence-001",
+  "mode": [
+    "EVIDENCE_FIRST",
+    "SANDBOX_ONLY",
+    "READ_ONLY"
+  ],
+  "authority": "NONE",
+  "canonicalSot": "READ_ONLY",
+  "canonicalMutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "status": "DRAFT_PR_PREPARED_RUNTIME_INTEGRATION_NOT_OBSERVED",
+  "sourceArtifacts": {
+    "candidateZip": {
+      "path": "KM-PATTERN-ENGINE-001-v0.1.3-acceptance-benchmark-candidate.zip",
+      "sha256": "5ee0fe0d148ac216547dcfa903458b85c12914513acb2d2608360d4789c25e28"
+    },
+    "resultsJson": {
+      "path": "KM-PATTERN-ENGINE-001_ACCEPTANCE_RESULTS_002.json",
+      "sha256": "8100eb75e8e8494b96ab337110b0d9feb1a660abe94524db582571a960c2de45"
+    },
+    "datasetSnapshot": {
+      "name": "Wine recognition",
+      "source": "UCI dataset 109; local scikit-learn bundled copy",
+      "sourceUrl": "https://archive.ics.uci.edu/dataset/109/wine",
+      "doi": "10.24432/C5PC7J",
+      "license": "CC BY 4.0 (recorded from UCI source metadata)",
+      "licenseMetadataRecorded": true,
+      "testedCopyLicenseVerified": false,
+      "freshDirectDownloadFromUci": false,
+      "rows": 178,
+      "features": 13,
+      "trainRows": 124,
+      "holdoutRows": 54,
+      "holdoutLabelsUsedForFit": false,
+      "holdoutTransferAccuracy": 0.9444444444444444,
+      "majorityClassBaseline": 0.3888888888888889,
+      "sha256": "56642dccc99b96b03b662d49fcb4da8773dcf64e1532d2de9ef2460c77670032",
+      "realAnomalyLabelsAvailable": false
+    }
+  },
+  "resultSummary": {
+    "exploratoryChecksPassed": 20,
+    "exploratoryChecksTotal": 20,
+    "nullFamiliesPerDistribution": 1000,
+    "nullDistributions": [
+      "gaussian",
+      "uniform",
+      "heavy_tailed"
+    ],
+    "hypothesisTestsPerNullFamily": 3,
+    "permutationsPerTest": 99,
+    "confirmatoryPermutationTargetMinimum": 999,
+    "rawFalsePositiveRates": {
+      "gaussian": 0.03866666666666667,
+      "uniform": 0.04,
+      "heavy_tailed": 0.031
+    },
+    "holmFamilywiseAnyRejectionRates": {
+      "gaussian": 0.035,
+      "uniform": 0.027,
+      "heavy_tailed": 0.022
+    },
+    "clusteringPurityAtLeast90Rate": {
+      "wellSeparated": 1,
+      "moderateOverlap": 0.878,
+      "heavyOverlap": 0
+    },
+    "controlledSyntheticOutlierRecall": {
+      "noiseSd0_5": 1,
+      "noiseSd1": 1,
+      "noiseSd2": 1,
+      "noiseSd4": 1
+    }
+  },
+  "integrationMap": {
+    "m01": "Research/evidence projection UI in the existing Experiments page; presentation only.",
+    "m05": "Evidence Ladder boundary: pinned snapshots do not automatically promote evidence.",
+    "m06": "Proof of Resonance remains separate; no PoR score, threshold, or finality changes.",
+    "m08": "Future research/orchestration consumer can read derived report but cannot infer authority.",
+    "m09": "Future dataset adapter may provide provenance-bound snapshots; no source connector included."
+  },
+  "runtimeEventIntegration": {
+    "proposedEventType": "PATTERN_BENCHMARK_SNAPSHOT_ATTACHED",
+    "wiredToEventBus": false,
+    "runtimeReceiptObserved": false
+  },
+  "gates": {
+    "exploratoryCriteria": "HOLD_PROVENANCE_OF_TESTED_COPY_UNVERIFIED",
+    "testedCopyLicenseAndProvenance": "HOLD",
+    "confirmatoryPermutationDepth": "HOLD",
+    "independentExternalReplication": "HOLD",
+    "independentSecondRealDataset": "HOLD",
+    "runtimeIntegration": "NOT_OBSERVED",
+    "promotionAllowed": false
+  },
+  "limitations": [
+    "Only one real-world dataset and one 70/30 split are recorded; the exact tested bundled copy licence/provenance is not independently verified.",
+    "Real-data anomaly labels are not available; no real-world anomaly precision/recall claim is supported.",
+    "99 permutations per test have coarse Monte Carlo resolution; >=999 are required for confirmatory work.",
+    "UCI catalogue licence metadata does not by itself verify the licence/provenance of the local scikit-learn-bundled copy used for the recorded run.",
+    "This patch adds a pinned snapshot projection, not a live benchmark runner or host integration.",
+    "No canonical source files are modified."
+  ],
+  "immutableInvariants": {
+    "canonicalSotReadOnly": true,
+    "canonicalMutation": false,
+    "manifestRuntimeEquivalence": false,
+    "executionEqualsVerification": false,
+    "hashMatchEqualsSemanticTruth": false,
+    "humanApprovalRequiredForPromotion": true
+  }
+}

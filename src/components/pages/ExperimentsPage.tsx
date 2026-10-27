@@ -34,6 +34,7 @@ import {
 } from 'recharts';
 import { useOSStore } from '../../store/osStore';
 import { EvidenceBadge } from '../common/EvidenceBadge';
+import { PatternEngineEvidencePanel } from '../experiments/PatternEngineEvidencePanel';
 import { TRANSLATIONS } from '../../data/translations';
 import { PHI, SAFE_BASELINE_CUTOFF, evaluatePoRGates, getDefaultResonanceMetrics } from '../../lib/resonance';
 import {
@@ -104,7 +105,7 @@ export const ExperimentsPage: React.FC = () => {
   const { porMetrics, language, addLog } = useOSStore();
   const t = TRANSLATIONS[language];
 
-  const [activeTab, setActiveTab] = useState<'scientific' | 'oscillator' | 'wan_harness'>('scientific');
+  const [activeTab, setActiveTab] = useState<'scientific' | 'oscillator' | 'wan_harness' | 'pattern_quality'>('scientific');
 
   // Scientific Mode State
   const [gates, setGates] = useState<ScientificGate[]>(INITIAL_OPEN_GATES);
@@ -297,8 +298,22 @@ export const ExperimentsPage: React.FC = () => {
             <Activity className="w-3.5 h-3.5" />
             3. Гармонический Осциллятор φ
           </button>
+          <button
+            onClick={() => setActiveTab('pattern_quality')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              activeTab === 'pattern_quality'
+                ? 'bg-amber-500/20 text-amber-200 border border-amber-500/40 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+            aria-controls="pattern-engine-evidence-panel"
+          >
+            <ShieldAlert className="w-3.5 h-3.5" />
+            4. Pattern Engine Evidence Gate
+          </button>
         </div>
       </div>
+
+      {activeTab === 'pattern_quality' && <PatternEngineEvidencePanel />}
 
       {/* ========================================================================= */}
       {/* TAB 1: SCIENTIFIC GATES & FALSIFICATION (SAFE BASELINE 0.500) */}

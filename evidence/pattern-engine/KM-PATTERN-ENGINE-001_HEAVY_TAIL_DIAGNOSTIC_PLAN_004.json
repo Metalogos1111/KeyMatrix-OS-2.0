@@ -1,0 +1,36 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-HEAVY-TAIL-DIAGNOSTIC-PLAN-004",
+  "created_utc": "2026-10-27",
+  "mode": ["EVIDENCE_FIRST", "SANDBOX_ONLY", "READ_ONLY"],
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-HEAVY-TAIL-DIAGNOSTIC-004",
+  "purpose": "Investigate the v0.1.4 follow-up 003 heavy-tailed Holm FWER Wilson upper bound, which narrowly exceeded the frozen 7.5% threshold. This is a targeted diagnostic selected after the prior result, not a replacement acceptance run.",
+  "seed": 20261029,
+  "design": {
+    "null_distribution": "heavy_tailed_t_like_df3",
+    "families": 5000,
+    "hypotheses_per_family": 3,
+    "sample_size_per_hypothesis": 30,
+    "permutations_per_test": 999,
+    "nominal_alpha": 0.05,
+    "correction": "Holm step-down within each predeclared family of three null hypotheses",
+    "total_hypothesis_tests": 15000,
+    "total_permutations": 14985000,
+    "metrics": ["raw_false_positive_rate", "raw_fpr_wilson_95_ci", "familywise_any_rejection_rate", "familywise_rejection_wilson_95_ci"]
+  },
+  "unchanged_thresholds": {
+    "raw_fpr_point_estimate_max": 0.06,
+    "raw_fpr_wilson95_upper_max": 0.075,
+    "holm_familywise_any_rejection_rate_max": 0.06,
+    "holm_familywise_wilson95_upper_max": 0.075
+  },
+  "interpretation_limits": [
+    "This targeted run is selected after observing the heavy-tailed result in follow-up 003; it is diagnostic and must not erase or replace that recorded failure.",
+    "No threshold changes are permitted.",
+    "This does not establish external independent replication or real-world generalization.",
+    "No runtime integration or promotion is authorized."
+  ]
+}
