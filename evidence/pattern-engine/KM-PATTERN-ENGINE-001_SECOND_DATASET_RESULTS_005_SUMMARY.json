@@ -1,0 +1,78 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-SECOND-DATASET-RESULTS-005-SUMMARY",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-SECOND-DATASET-BENCHMARK-005",
+  "status": "EXECUTED_WITH_SCOPE_LIMITATIONS",
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "promotion_allowed": false,
+  "plan_sha256": "988aac8c7c66042bb178154b7252529729ed7a7114df54d952d03abf68f8e5e1",
+  "full_results_json_sha256": "e5eff6bdad3edde65dfb3fb65e275ad64a937d95ad9c8c1e3bce1b5aff156040",
+  "dataset_csv_sha256": "2bf6b0159b91984c11cdb63ad23d133325d588df850e64c3bdbe1caa252dac89",
+  "dataset": {
+    "name": "Breast Cancer Wisconsin (Diagnostic)",
+    "uci_dataset_id": 17,
+    "doi": "10.24432/C5DW2B",
+    "source_url": "https://archive.ics.uci.edu/dataset/17/breast-cancer",
+    "license": "CC BY 4.0 according to UCI catalogue metadata",
+    "license_metadata_verified_from_source": true,
+    "loaded_from_local_bundle": true,
+    "fresh_direct_download_from_uci": false,
+    "rows": 569,
+    "features": 30,
+    "classes": {
+      "malignant": 212,
+      "benign": 357
+    },
+    "snapshot_bytes": 279745,
+    "missing_cells": 0
+  },
+  "runtime": {
+    "python": "3.13.5",
+    "scikit_learn": "1.8.0"
+  },
+  "split": {
+    "seed": 20261030,
+    "train_rows": 398,
+    "holdout_rows": 171,
+    "stratified": true,
+    "scaler_fit_on_train_only": true,
+    "cluster_fit_used_holdout_rows": false,
+    "holdout_labels_used_for_fit_or_mapping": false,
+    "cluster_to_class_mapping_fit_on_train_labels_only": true
+  },
+  "clustering": {
+    "k": 2,
+    "converged": true,
+    "iterations": 6,
+    "holdout_transfer_accuracy": 0.8888888888888888,
+    "holdout_balanced_accuracy": 0.8704001168224299,
+    "majority_class_baseline": 0.6257309941520468,
+    "confusion_matrix_labels_0_1": [
+      [
+        51,
+        13
+      ],
+      [
+        6,
+        101
+      ]
+    ]
+  },
+  "gates": {
+    "second_distinct_real_dataset_executed": true,
+    "source_license_metadata_recorded": true,
+    "tested_copy_provenance_fully_independently_verified": false,
+    "external_independent_replication_observed": false,
+    "runtime_integration_observed": false,
+    "promotion_allowed": false
+  },
+  "limitations": [
+    "One dataset and one holdout split; not external independent replication.",
+    "Local scikit-learn copy was not freshly downloaded from UCI; source catalogue metadata records CC BY 4.0.",
+    "Research-only; not a clinical tool or diagnosis.",
+    "No verified real anomaly labels; no anomaly precision/recall claim.",
+    "No runtime integration or promotion."
+  ]
+}
