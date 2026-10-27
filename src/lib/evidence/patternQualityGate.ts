@@ -37,6 +37,7 @@ export interface PatternQualitySnapshot {
   candidateVersion: string;
   benchmarkZipSha256: string;
   resultsJsonSha256: string;
+  hashVerificationMode: 'RECORDED_REFERENCE_ONLY';
   dataset: {
     name: string;
     sourceUrl: string;
@@ -118,6 +119,7 @@ export function evaluatePatternQualityGate(
   if (!input.benchmarkId || !input.candidateVersion) shapeErrors.push('IDENTITY_FIELDS_MISSING');
   if (!isSha256(input.benchmarkZipSha256)) shapeErrors.push('BENCHMARK_ZIP_SHA256_INVALID');
   if (!isSha256(input.resultsJsonSha256)) shapeErrors.push('RESULTS_JSON_SHA256_INVALID');
+  if (input.hashVerificationMode !== 'RECORDED_REFERENCE_ONLY') shapeErrors.push('HASH_VERIFICATION_MODE_UNSUPPORTED');
   if (!input.dataset || !isSha256(input.dataset.csvSha256)) shapeErrors.push('DATASET_SNAPSHOT_SHA256_INVALID');
   if (!Array.isArray(input.nullCalibration) || input.nullCalibration.length === 0) shapeErrors.push('NULL_CALIBRATION_MISSING');
   if (!Array.isArray(input.clustering) || input.clustering.length === 0) shapeErrors.push('CLUSTERING_RESULTS_MISSING');
