@@ -14,7 +14,7 @@ The check uses separate standard-library implementations and compares outputs to
 
 ## Integrity and limitations
 
-- Runner SHA-256: `70a67052403d48ce02eb624db8fec9652b8bc06e926e85f5d5b4f3ef97544828`
-- Local result SHA-256: `b0cfaa16784dcc29ce83e98c8bd98b6aba9f27d0dad044f24f0ca0fe0c627f66`
+- Runner SHA-256: `f582e1836dd2ad41d420c6af970ea6f118c1c3b5394d85a8ded7913e62732886`
+- Local result SHA-256: `92291b920924d9f4e01ecc2b5b99efac80a1bae652b7b34fe879c231cae33e31`
 
 This is a local differential check, not an external independent replication or third-party audit. It does not establish real-world generalization, runtime integration, or promotion eligibility. The global evidence gate remains HOLD.
