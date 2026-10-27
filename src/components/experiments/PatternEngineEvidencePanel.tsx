@@ -122,16 +122,17 @@ export const PatternEngineEvidencePanel: React.FC = () => {
       </div>
 
       <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
-        <h3 className="text-sm font-bold text-white">Evidence provenance</h3>
+        <h3 className="text-sm font-bold text-white">Recorded artifact hash references</h3>
         <dl className="mt-3 grid grid-cols-1 gap-3 text-[10px] md:grid-cols-2">
           <HashValue label="Benchmark ZIP SHA-256" value={snapshot.benchmarkZipSha256} />
           <HashValue label="Results JSON SHA-256" value={snapshot.resultsJsonSha256} />
           <HashValue label="Dataset CSV SHA-256" value={snapshot.dataset.csvSha256} />
           <div>
-            <dt className="mb-1 text-slate-500">Runtime / authority boundary</dt>
-            <dd className="font-mono text-amber-200">NOT_OBSERVED · Authority NONE · Canonical SOT READ_ONLY</dd>
+            <dt className="mb-1 text-slate-500">Hash / runtime / authority boundary</dt>
+            <dd className="font-mono text-amber-200">HASH REFERENCES ONLY · NOT_OBSERVED · Authority NONE · Canonical SOT READ_ONLY</dd>
           </div>
         </dl>
+        <p className="mt-3 text-[10px] text-slate-500">Displayed SHA-256 values are recorded references. This UI does not recompute source-file hashes.</p>
         <div className="mt-3 flex items-start gap-2 rounded-lg border border-slate-800 bg-black/30 p-3 text-[11px] text-slate-300">
           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300" />
           <p>
