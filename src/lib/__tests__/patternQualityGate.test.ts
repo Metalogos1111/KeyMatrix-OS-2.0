@@ -20,7 +20,7 @@ describe('KM-PATTERN-ENGINE-001 KeyMatrix evidence adapter', () => {
     const altered: PatternQualitySnapshot = {
       ...PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT,
       nullCalibration: PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT.nullCalibration.map((item) =>
-        item.distribution === 'uniform' ? { ...item, rawFpr: 0.2, rawFprWilson95: [0.1, 0.3] } : item,
+        item.distribution === 'uniform' ? { ...item, rawFpr: 0.2, rawFprWilson95: [0.1, 0.3] as [number, number] } : item,
       ),
     };
     const result = evaluatePatternQualityGate(altered);
