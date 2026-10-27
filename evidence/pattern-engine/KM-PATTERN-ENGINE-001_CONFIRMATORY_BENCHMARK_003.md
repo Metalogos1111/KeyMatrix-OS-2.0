@@ -22,7 +22,7 @@ The following source hashes were recomputed from the actual local files and matc
 - Original acceptance JSON (12,696 bytes): `8100eb75e8e8494b96ab337110b0d9feb1a660abe94524db582571a960c2de45`
 - Dataset CSV (30,143 bytes): `56642dccc99b96b03b662d49fcb4da8773dcf64e1532d2de9ef2460c77670032`
 
-The ZIP archive passed its CRC integrity check. These checks establish byte identity/integrity, not semantic truth.
+The ZIP archive passed its CRC integrity check. The embedded v0.1.3 artifact hash manifest was also recomputed: **11/11 entries matched, 0 mismatches, 0 missing**. The embedded independent baseline check covers only three frozen fixtures and is not a broad independent audit. These checks establish byte identity/integrity, not semantic truth.
 
 ## Results
 
