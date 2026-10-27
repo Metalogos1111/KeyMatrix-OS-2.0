@@ -1,0 +1,114 @@
+{
+  "artifact_id": "KM-PATTERN-ENGINE-001-CONFIRMATORY-RESULTS-003-SUMMARY",
+  "benchmark_id": "KM-PATTERN-ENGINE-001-CONFIRMATORY-BENCHMARK-003",
+  "candidate_version": "0.1.4-confirmatory-candidate",
+  "run_status": "EXECUTED_WITH_SCOPE_LIMITATIONS",
+  "decision": "HOLD",
+  "authority": "NONE",
+  "canonical_sot": "READ_ONLY",
+  "canonical_mutation": false,
+  "promotion": "HUMAN_APPROVAL_REQUIRED",
+  "promotion_allowed": false,
+  "plan_sha256": "ea1f1be09eb21ce67d5e34232373d71c603fb45fd392e87a4879356cd1ffcdee",
+  "source_candidate_zip_sha256": "5ee0fe0d148ac216547dcfa903458b85c12914513acb2d2608360d4789c25e28",
+  "source_acceptance_results_json_sha256": "8100eb75e8e8494b96ab337110b0d9feb1a660abe94524db582571a960c2de45",
+  "source_dataset_csv_sha256": "56642dccc99b96b03b662d49fcb4da8773dcf64e1532d2de9ef2460c77670032",
+  "result_json_sha256": "7a8f4ae5211fb5546febc82f66381f8b32663a7c892a10c042f732a5fa3f97fa",
+  "runner_script_sha256": "5c1f9368fbeb10de224df837f1e1637a1d3b99d93439cbb148e1ae1e24d2cf3b",
+  "method": {
+    "seed": 20261028,
+    "permutations_per_test": 999,
+    "families_per_distribution": 1000,
+    "hypotheses_per_family": 3,
+    "sample_size_per_hypothesis": 30,
+    "alpha": 0.05,
+    "correction": "Holm step-down within family of three",
+    "total_hypothesis_tests": 9000,
+    "total_permutations": 8991000,
+    "permutation_implementation": "Independent vectorized NumPy RNG implementation for permutation sampling and Pearson permutation statistic; the same source engine was used for clustering and outlier helpers.",
+    "original_engine_rng_stream_reproduced": false
+  },
+  "strata": [
+    {
+      "distribution": "gaussian",
+      "raw_false_positives": 137,
+      "total_hypothesis_tests": 3000,
+      "raw_fpr": 0.04566666666666667,
+      "raw_fpr_wilson95": [
+        0.03875960781167959,
+        0.0537357727300666
+      ],
+      "holm_false_positives": 41,
+      "holm_fpr": 0.013666666666666667,
+      "familywise_any_rejections": 40,
+      "familywise_any_rejection_rate": 0.04,
+      "familywise_any_rejection_wilson95": [
+        0.02951097368545276,
+        0.05400964412125796
+      ]
+    },
+    {
+      "distribution": "uniform",
+      "raw_false_positives": 147,
+      "total_hypothesis_tests": 3000,
+      "raw_fpr": 0.049,
+      "raw_fpr_wilson95": [
+        0.041835590014624356,
+        0.05731793153561967
+      ],
+      "holm_false_positives": 51,
+      "holm_fpr": 0.017,
+      "familywise_any_rejections": 51,
+      "familywise_any_rejection_rate": 0.051,
+      "familywise_any_rejection_wilson95": [
+        0.03900094277526684,
+        0.06643548634476165
+      ]
+    },
+    {
+      "distribution": "heavy_tailed",
+      "raw_false_positives": 152,
+      "total_hypothesis_tests": 3000,
+      "raw_fpr": 0.050666666666666665,
+      "raw_fpr_wilson95": [
+        0.04337731140028998,
+        0.05910528065420295
+      ],
+      "holm_false_positives": 62,
+      "holm_fpr": 0.020666666666666667,
+      "familywise_any_rejections": 59,
+      "familywise_any_rejection_rate": 0.059,
+      "familywise_any_rejection_wilson95": [
+        0.04601429821280047,
+        0.07536090277145915
+      ]
+    }
+  ],
+  "acceptance": {
+    "checks_passed": 19,
+    "checks_total": 20,
+    "all_pass": false,
+    "failed_criterion": "heavy_tailed_holm_familywise_ci_upper",
+    "observed": 0.07536090277145915,
+    "threshold": 0.075
+  },
+  "real_dataset": {
+    "name": "UCI Wine recognition",
+    "rows": 178,
+    "features": 13,
+    "train_rows": 124,
+    "holdout_rows": 54,
+    "seed": 20261028,
+    "license_metadata_verified_from_source": true,
+    "loaded_from_scikit_learn_bundle": true,
+    "real_anomaly_labels_available": false,
+    "holdout_transfer_accuracy": 0.9444444444444444,
+    "majority_class_baseline": 0.3888888888888889
+  },
+  "non_claims": [
+    "The run is a follow-up with a new seed and a separate vectorized permutation implementation, not external independent replication.",
+    "The real dataset remains one dataset and one holdout split.",
+    "No real-world anomaly precision/recall is established.",
+    "No KeyMatrix runtime integration was observed."
+  ]
+}
