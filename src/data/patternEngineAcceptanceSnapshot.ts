@@ -52,7 +52,7 @@ export const PATTERN_ENGINE_ACCEPTANCE_SNAPSHOT: PatternQualitySnapshot = {
     },
     {
       distribution: 'heavy_tailed', families: 1000, testsPerFamily: 3, permutationsPerTest: 99,
-      rawFpr: 0.031, rawFprWilson95: [0.02537281666935177, 0.03782674343500324],
+      rawFpr: 0.031, rawFprWilson95: [0.02537281666935177, 0.03782674343500397],
       familywiseAnyRejectionRate: 0.022, familywiseAnyRejectionWilson95: [0.014572707764791058, 0.03308567334739963],
     },
   ],
